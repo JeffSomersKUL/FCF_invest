@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css?family=Acme|Lobster|Patua+One|Rubik|Sniglet");
+@import url("http://fonts.googleapis.com/css?family=Lato:400,700");
+@import url('https://fonts.cdnfonts.com/css/finance');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,700;1,400&display=swap');
+* {
+  box-sizing: border-box;
+}
+
+body{
+    background-color: white
+}
+
+.navbar-brand{
+    color: white;
+    text-shadow: 1px 1px 2px rgb(68, 68, 68);
+}
+
+/* header,
+section {
+  overflow-x: hidden;
+} */
+
+:root {
+  --Sniglet-font: "Sniglet", cursive;
+  --Rubik: "Rubik", cursive;
+  --Patua: "Patua One", cursive;
+  --Lobster: "lobster", cursive;
+  --light-black: #2e2c2caf;
+  --bggradient: linear-gradient(to bottom, #2681e9, #29319e);
+  --light-gray: rgba(255, 255, 255, 0.877);
+}
+
+.site-width{
+  width: 75%;
+}
+
+header a {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9em;
+    color: whitesmoke;
+}
+
+header a:hover{
+    color: whitesmoke;
+}
+
+header .navbar{
+  box-shadow: 0px 2px 10px rgba(45, 44, 68, 0.73);
+  padding: 0.5rem 0rem;
+}
+
+header .nav-item:last-child {
+  padding-right: 10.5em;
+}
+
+header .nav-item {
+  padding: 0.9em;
+}
+
+header .navbar-brand {
+  padding-left: 8rem;
+}
+
+header .row .col-md-8 {
+    padding: 2rem 0rem;
+    padding-bottom: 2rem;
+}
+
+header .row .col-md-5 {
+  padding: 4.2vmin 1vmin;
+}
+
+header .row .col-md-5 img {
+  width: 90%;
+}
+
+header {
+  background: #0015f9;
+  /* fallback for old browsers */
+  background: var(--bggradient);
+  border-bottom: 2px solid #c6c6c6bd;
+}
+
+header .container-fluid .row{
+  height: 25rem;
+  align-content: center;
+}
+
+header .container-fluid .row .col-md-8{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header .container-fluid .col-md-8 h1 {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    padding: 0.1em 0.2em;
+    font-size: 32px;
+}
+
+header .container-fluid .col-md-8 p {
+    font-family: 'Lato', sans-serif;
+    padding: 1rem 0.4rem;
+    font-size: large;
+    color: #ccc;
+    text-align: left;
+}
+
+header .contact-button{
+  padding: 1rem;
+  border: 1px solid;
+}
+
+/* underline animation */
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+}
+  
+.hover-underline-animation:after {
+content: '';
+position: absolute;
+width: 100%;
+transform: scaleX(0);
+height: 2px;
+bottom: 0;
+left: 0;
+background-color: white;
+transform-origin: bottom right;
+transition: transform 0.25s ease-out;
+}
+  
+.hover-underline-animation:hover:after {
+transform: scaleX(1);
+transform-origin: bottom left;
+}
+
+/********* section 1 *********/
+
+.section-1 {
+    padding: 2rem 0vmin;
+  }
+
+  .section-1 .row .col-md-4 .pray{
+    position: absolute;
+    top: -14rem;
+  }
+  
+  .section-1 .row .col-md-4 .pray img {
+    width: 120%;
+    border-radius: 0.5em;
+    box-shadow: 4px 3px 5px #242a40e0;
+  }
+  
+  .section-1 .row .col-md-8:last-child {
+    position: relative;
+  }
+  
+  .section-1 .row .col-md-8 .panel {
+    top: 4rem;
+    padding: 2rem 2rem 3rem 3rem;
+    background: white;
+    border-radius: 25px;
+    text-align: left;
+    font-family: var(--Rubik);
+    z-index: 1;
+    border: 3px dashed #0777f824;
+    background: #d0d0d030;
+    margin-top: 4rem;
+  }
+  
+  .section-1 .row .col-md-8 .panel h1 {
+    font-weight: bold;
+    padding: 0.4em 0;
+    font-size: 2em;
+  }
+  
+  .section-1 .row .col-md-8 .panel p {
+    font-size: 0.9em;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.815);
+    z-index: 9999;
+    transition: all 1.5s ease;
+  }
+
+/********* section 2 *********/
+
+.section-2 .information-banner{
+  position: relative;
+  width: 100%;
+  height: 55vmin;
+}
+
+.section-2 .information-banner .test{
+  position: relative;
+  width: 100%;
+  height: 55vmin;
+}

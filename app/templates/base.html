@@ -1,0 +1,111 @@
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/page.css') }}" rel="stylesheet">
+    <title>{% block title %}FCF invest{% endblock %}</title>
+</head>
+
+<header>
+  <div class="container-fluid p-0">
+    <nav class="navbar navbar-expand-lg">
+      <div class="navbar-brand" href="#">
+        FCF invest
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <i class="fas fa-align-right text-light"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="mr-auto"></div>
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link hover-underline-animation" href="#">HOME
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link hover-underline-animation" href="#">ABOUT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link hover-underline-animation" href="#">PORTFOLIO</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="container-fluid text-center site-width">
+    <div class="row">
+      <div class="col-md-8 col-sm-12 text-white">
+        <h1>Building wealth, friendship and futures together</h1>
+        <p>
+          Our young investment club, based in Leuven, is comprised of 
+          highly educated individuals with a passion for finance and a 
+          desire to learn more. The club, which was formed in 2021 by a 
+          group of friends, provides a supportive environment for its members 
+          to network, learn, and explore investment opportunities.
+        </p>
+        <div class="contact-button">CONTACT US</div>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="section-1">
+      <div class="container-fluid text-center site-width">
+          <div class="row">
+            <div class="col-md-8 col-12">
+              <div class="panel text-left">
+                  <h1>What do we have to offer?</h1>
+                  <p class="pt-4">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere iure adipisci harum ducimus accusantium, repudiandae aperiam
+                    voluptatum, id ex ratione omnis reiciendis possimus officiis.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi vitae, tenetur quidem eum aliquid vel labore sint placeat
+                    ad deserunt consectetur fugit ullam. Eius unde neque ducimus obcaecati ipsum quos vero totam recusandae hic
+                    expedita nemo sit, illum harum. Quisquam impedit ullam itaque facere et ad molestiae quod reprehenderit excepturi!
+                  </p>
+              </div>
+            </div>
+            <div class="col-md-4 col-12">
+              <div class="pray">
+                  <img src="../static/images/Leuven.jpg" alt="Pray" class="" />
+              </div>
+            </div>
+          </div>
+        </div>
+  </section>
+  <section class="section-2 container-fluid p-0">
+    <div class="information-banner">
+      <div class="test">
+        Test
+      </div>
+    </div>
+  </section>
+</main>
+
+
+
+
+    <!-- <div class="bgimage" id="home">
+    </div>
+    <div class="container-fluid">
+        <div class="row" style="padding-top: 15%;">
+        <div class="col-9 hero-text">
+            <h2 class="hero_title">Hi, we are FCF invest</h2>
+            <p class="hero_desc">Unlock your financial potential with our young and ambitious investment group, dedicated to helping you achieve your big dreams.</p>
+        </div>
+        </div>
+    </div> -->
+    
+
+
+{% endblock %}
+{% block scripts %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+  crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='css/main.js') }}"></script>
+{% endblock scripts %}

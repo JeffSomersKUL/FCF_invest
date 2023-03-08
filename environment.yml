@@ -1,3 +1,4 @@
 dependencies:
   - flask-bootstrap
   - python=3.9
+  - jquery
