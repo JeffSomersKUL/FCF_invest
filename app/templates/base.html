@@ -1,10 +1,10 @@
 {% block content %}
 
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="{{ url_for('static', filename='css/page.css') }}" rel="stylesheet">
-    <title>{% block title %}FCF invest{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="{{ url_for('static', filename='css/page.css') }}" rel="stylesheet">
+  <title>{% block title %}FCF invest{% endblock %}</title>
 </head>
 
 <header>
@@ -35,102 +35,13 @@
       </div>
     </nav>
   </div>
-  <div class="container-fluid text-center site-width">
-    <div class="row">
-      <div class="col-md-8 col-sm-12 text-white">
-        <h1>Building wealth, friendship and futures together</h1>
-        <p>
-          Our young investment club, based in Leuven, is focused on collective 
-          wealth growth by exploiting diverse profiles with a passion for 
-          finance. Founded in 2021 by a group of friends, the club provides a 
-          supportive environment for its members to network, learn and explore 
-          investment opportunities.
-        </p>
-        <div class="row">
-          <div class="contact-button">CONTACT US</div>             
-        </div>
-      </div>
-    </div>
-  </div>
 </header>
-<main>
-  <section class="section-1">
-      <div class="container-fluid text-center site-width">
-          <div class="row">
-            <div class="col-md-8 col-12">
-              <div class="panel text-left">
-                  <h1>What do we offer?</h1>
-                  <p class="pt-4">
-                    FCF Invest is een beleggingsgroep opgericht door studenten 
-                    en pas afgestudeerden met een interesse in beleggen en 
-                    economie. Wekelijks komen de groepsleden online of fysiek 
-                    samen om de financiële markten te bediscussiëren en 
-                    doormiddel van samenspraak en engagement van elkaar te 
-                    leren met als doel de markt te verslaan.
-                  </p>
-                  <p>
-                    Op een vergadering stelt men aandelen voor, bespreekt men 
-                    het macro-economisch klimaat, voert men fundamentele en 
-                    technische analyse uit en ontwikkelt men continue de 
-                    strategie van de maatschap. Het primaire doel van 
-                    FCF Invest is een fonds uitbouwen dat doormiddel van het 
-                    investeren in financiële instrumenten het kapitaal van 
-                    leden en investeerders doet renderen. Er wordt gebruik van 
-                    verschillende effecten zoals aandelen, CFD’s, futures, 
-                    obligaties, enzovoort. Er wordt gespeeld zowel aan de long 
-                    als short side op zowel de korte en lange termijn.
-                  </p>
-                  <p>
-                    De diverse academische en professionele achtergrond van de 
-                    leden van FCF Invest zorgen voor een waaier aan 
-                    perspectieven en opinies, broodnodig voor het analyseren 
-                    van de financiële markten. Het merendeel heeft als 
-                    achtergrond burgerlijk ingenieur in verschillende 
-                    specialisaties, maar men vindt ook handelsingenieurs, 
-                    industrieel ingenieurs, bio ingenieurs en geneeskunde 
-                    studenten onder de leden. Velen zijn ook al professioneel 
-                    actief in sectoren zoals consultancy (Bain & Company, 
-                    Seven Beaufort, ... ), finance (KBC, PWC, ... ), pharma 
-                    (J&J) en AI startups (Relu). Het secundaire doel is een 
-                    uitgebreid netwerk creëren van gelijkgestemden die elkaar 
-                    vooruithelpen binnen en buiten het kader van het beleggen.
-                  </p>
-              </div>
-            </div>
-            <div class="col-md-4 col-12">
-              <div class="pray">
-                  <img src="../static/images/Leuven.jpg" alt="Pray" class="" />
-              </div>
-            </div>
-          </div>
-        </div>
-  </section>
-  <section class="section-2 container-fluid p-0">
-    <div class="information-banner">
-      <div class="test">
-        Test
-      </div>
-    </div>
-  </section>
-</main>
 
-
-
-
-    <!-- <div class="bgimage" id="home">
-    </div>
-    <div class="container-fluid">
-        <div class="row" style="padding-top: 15%;">
-        <div class="col-9 hero-text">
-            <h2 class="hero_title">Hi, we are FCF invest</h2>
-            <p class="hero_desc">Unlock your financial potential with our young and ambitious investment group, dedicated to helping you achieve your big dreams.</p>
-        </div>
-        </div>
-    </div> -->
-    
-
+{% block app_content %}{% endblock %}
 
 {% endblock %}
+
+
 {% block scripts %}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
