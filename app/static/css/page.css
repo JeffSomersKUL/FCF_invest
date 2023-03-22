@@ -31,7 +31,8 @@ section {
   --Patua: "Patua One", cursive;
   --Lobster: "lobster", cursive;
   --light-black: #2e2c2caf;
-  --bggradient: linear-gradient(to bottom, #2681e9, #29319e);
+  --light-blue:#2681e9;
+  --bggradient: linear-gradient(to bottom, var(--light-blue), #29319e);
   --light-gray: rgba(255, 255, 255, 0.877);
   --height-header: 28rem
 }
@@ -41,7 +42,7 @@ section {
 }
 
 header {
-  background: #0079f9;;
+  background: var(--light-blue)
 }
 
 header a {
@@ -55,7 +56,6 @@ header a:hover{
 }
 
 header .navbar{
-  box-shadow: 0px 0px 15px rgba(45, 44, 68, 0.73);
   padding: 0.5rem 0rem;
   z-index: 6;
 }
@@ -88,7 +88,7 @@ header .navbar-brand {
   justify-content: center;
   align-items: center;
   position: relative;
-  box-shadow: inset 0 -15px 30px -10px rgba(0,0,0,0.5);
+  box-shadow: inset 0 -20px 20px -18px rgba(0,0,0,0.5);
 }
 
 .Leuven-image{
@@ -157,7 +157,7 @@ header .navbar-brand {
 }
 
 .contact{
-  background-color: #153793;
+  background-color: #014fb3;
 }
 
 .learn-more{
@@ -338,12 +338,33 @@ transform-origin: bottom left;
   gap:5rem;
   border-left: 3px solid #7ec3ff;
   border-right: 3px solid #7ec3ff; 
+  padding: 2rem 0rem;
 }
 
 .feature-card{
-  height: 20rem;
-  background-color: #0079f9;
-  width: 20rem;
   border-radius: 10px;
-  box-shadow: 15px 15px 0px #5cb3ffc9;
+  background-color: #077fff63;
+  box-shadow: 15px 15px 0px #5cb3ff2b;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.feature-symbol{
+
+}
+
+.feature-title{
+  font-size: 18px;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #36588ced;
+}
+
+.feature-description{
+  font-size: 15px;
+  color: #27304bb5;
+  height: 15rem;
 }
