@@ -1,33 +1,36 @@
 {% extends "base.html" %}
 
-{% block app_content %}
+{% block header %}
+<div class="nav-header-background">
+    <div class="blue-filter"></div>
+    <div class="city-image"></div>
+</div>
 <div class="nav-header">
     <div class="container-fluid text-center header-info">
-      <div class="row site-width text-white">
-        <div class="col-md-8 col-sm-12 ">
-          <h1>Building wealth, friendship and futures together</h1>
-          <p>
-            Our young investment club, based in Leuven and Antwerp, is focused on collective 
-            wealth growth by exploiting diverse profiles with a passion for 
-            finance. Founded in 2021 by a group of friends, the club provides a 
-            supportive environment for its members to network, learn and explore 
-            investment opportunities.
-          </p>
-          <div class="row">
-            <div class="header-button contact">CONTACT US</div> 
-            <div class="header-button learn-more">LEARN MORE</div>              
-          </div>
+        <div class="col-header site-width text-white">
+            <h1>Building wealth, friendship and futures together</h1>
+            <p>
+                Our young investment club, based in Leuven and Antwerp, is focused on collective 
+                wealth growth by exploiting diverse profiles with a passion for 
+                finance. Founded in 2021 by a group of friends, the club provides a 
+                supportive environment for its members to network, learn and explore 
+                investment opportunities.
+            </p>
+            <div class="buttons-container">
+                <div class="header-button-floating">CONTACT US</div> 
+                <div class="header-button-normal ">
+                    LEARN MORE 
+                    <i class="bi bi-caret-right-fill"></i>
+                </div>              
+            </div>
         </div>
-      </div>
-      <div class="Leuven-image">
-        <div class="cut-out">
-          <div class="image-city"></div>
-        </div>
-        <div class="blue-filter"></div>
-      </div>
-      </div>
     </div>
-</div>
+</div> 
+
+{% endblock %}
+
+{% block app_content %}
+
 
 <main>
 <section class="section-1">
