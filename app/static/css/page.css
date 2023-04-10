@@ -33,12 +33,87 @@ section {
   --bggradient: linear-gradient(to bottom, var(--light-blue), var(--dark-blue));
   --light-gray: rgba(255, 255, 255, 0.877);
   --section-gap:7rem;
-  --height-nav-header:31rem
+  --height-nav-header:31rem;
+  --height-navbar:5rem;
+  --height-section-2:20rem
 }
 
 .site-width{
   width: 76%;
 }
+
+/********* incoming animation *********/
+
+.hidden{
+  visibility: hidden !important;
+}
+
+.left-in{
+  animation-name: slideInLeft;
+  animation-duration: 1.5s;
+}
+
+.right-in{
+  animation-name: slideInRight;
+  animation-duration: 1.5s;
+}
+
+.up-in{
+  animation-name: slideInUp;
+  animation-duration: 1.5s;
+}
+
+.down-in{
+  animation-name: slideInDown;
+  animation-duration: 1.5s;
+}
+
+@keyframes slideInLeft{
+  from{
+    opacity: 0;
+    transform: translate3d(-100%,0,0);
+  }
+  to{
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slideInRight{
+  from{
+    opacity: 0;
+    transform: translate3d(100%,0,0);
+  }
+  to{
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slideInUp{
+  from{
+    opacity: 0;
+    transform: translate3d(0,100%,0);
+  }
+  to{
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slideInDown{
+  from{
+    opacity: 0;
+    transform: translate3d(0,-100%,0);
+  }
+  to{
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/********* header *********/
 
 header {
   position: relative;
@@ -65,10 +140,17 @@ nav a:hover{
     color: whitesmoke;
 }
 
+nav .navbar-place-holder{
+  height: var(--height-navbar);
+}
+
 nav .navbar{
   padding: 0.5rem 0rem;
   z-index: 6;
   width: 100%;
+  height: var(--height-navbar);
+  top:0;
+  position: absolute;
 }
 
 nav .nav-item:last-child {
@@ -252,12 +334,12 @@ transform-origin: bottom left;
 }
 
 .sticky {
-  position: fixed;
+  position: fixed !important;
   top: 0;
   width: 100%;
-  background: rgba(15, 39, 85, 0.89);
+  background: rgb(9, 50, 113);
   z-index: 9999;
-  transition: all 1s ease;
+  transition: all 0.5s ease;
 }
 
 /********* section 1 *********/
@@ -282,6 +364,12 @@ transform-origin: bottom left;
   width: 25%;
   padding: 1rem;
   gap: 1rem;
+  transition: box-shadow 300ms ease, transform 300ms ease;
+}
+
+.feature-card:hover{
+  box-shadow: 30px 30px 0px #5cb3ff14;
+  transform: translateY(-10px);
 }
 
 .feature-icon{
@@ -304,43 +392,106 @@ transform-origin: bottom left;
 
 /********* section 2 *********/
 
-.section-2{
+/* .section-2{
   background-color: #1f65ac;
   box-shadow: 
     inset 0 -22px 22px -16px rgba(0,0,0,0.5), 
     inset 0 22px 22px -16px rgba(0,0,0,0.5);
   margin-bottom: var(--section-gap);
+} */
+
+.section-2{
+  background-image: url("../images/building2.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  background-attachment: fixed;
+  box-shadow: 
+  inset 0 -22px 22px -16px rgba(0,0,0,0.5), 
+  inset 0 22px 22px -16px rgba(0,0,0,0.5);
+  height: var(--height-section-2);
+  position: relative;
 }
 
-.section-2 .text-white{
+.section-2::before{
+  content: "";
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background: rgba(8, 35, 100, 0.5);
+}
+
+.section-2 .container-fluid{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10%;
+  gap: 5%;
   width: 100%;
+  height: 100%;
 } 
 
 .stat{
+  z-index: 3;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5rem 0rem;
   flex-direction: column;
+  width: 17rem;
 }
 
 .stat-icon{
-  width: 7rem;
+  width: 6rem;
   filter: brightness(0) invert(1);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  transition: all 500ms ease;
 }
 
 .stat-number{
   font-size: 1.7rem;
   font-weight: 500;
   font-family: 'Oswald', sans-serif;
+  transition: all 500ms ease;
 }
 
 .stat-text{
   font-weight: 200;
   font-size: 1.5rem;
+  transition: all 500ms ease;
 }
+
+.stat:hover .stat-icon{
+  transform: translateY(-10px);
+}
+
+.stat:hover .stat-number{
+  font-size: 2rem;
+}
+
+.stat:hover .stat-text{
+  font-size: 1.7rem;
+}
+
+/********* section 3 *********/
+
+.section-3{
+  height: 40rem;
+}
+
+.section-3 img{
+  width: 100%;
+}
+
+.container-fluid .row{
+  height: 100%;
+}
+
+.how-to-work-col{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end
+
+}
+
