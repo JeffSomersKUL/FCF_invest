@@ -20,7 +20,7 @@
                 <div class="header-button-contact">CONTACT US</div> 
                 <div class="header-button-learn ">
                     LEARN MORE 
-                    <i class="bi bi-caret-right-in-fill"></i>
+                    <i class="bi bi-arrow-right-short"></i>
                 </div>              
             </div>
         </div>
@@ -121,55 +121,171 @@
 <section class="section-3">
     <div class="container-fluid site-width">
         <div class="row">
-            <div class="col-md-6 col-12 how-to-work-col">
-                <div>
+            <div class="col-md-6 col-12 how-to-work-col hidden">
+                <div class="title-how-to-work">
                     How do we work?
                 </div>
-                <div>
+                <div class="description-how-to-work">
                     To ensure seamless operations within our investment club, 
                     we have implemented a series of measures. Firstly, we 
-                    distinguish our members based on their level of 
+                    distinguish our <span id="members" class="highlight-text">members</span> based on their level of 
                     commitment and willingness to participate in discussions. 
-                    Accordingly, we provide tailored types of presentations on 
+                    Accordingly, we provide tailored types of <span id="presentations" class="highlight-text">presentations</span> on 
                     a weekly rotating basis. In addition to the presentations, 
-                    we utilize Discord as our primary communication platform, 
-                    with support from Messenger, Drive, and email. 
-                    This enables effective communication and collaboration 
-                    among our members.
+                    we utilize Discord as our primary <span id="communication" class="highlight-text">communication</span> platform, 
+                    with support from Messenger, Drive, and email. This enables effective communication and collaboration 
+                    among our members. Lastly, we provide weekly updates to our <span id="porftolio" class="highlight-text">portfolio</span> to keep our members informed and enable them
+                    to track their investment progress.
                 </div>
                 <img src="../static/images/working.svg" alt="Illustration description">   
             </div>
-            <div class="col-md-6 col-12 items-col"> 
-                <div class="container">
-                    <div class="information-item">
-                        <div class="information-title">
-                            <h3>Types of members</h3>                        
-                        </div>  
-                        <div class="information-content">
-                            <p>Some more information about Item 1.</p>
+            <div class="col-md-6 col-12 items-col hidden"> 
+                <div class="information-item">
+                    <div class="information-title">
+                        Members   
+                        <i class="bi bi-chevron-right"></i>                   
+                    </div>  
+                    <div class="information-content" id="content-members">
+                        <div class="text-information-block">
+                            <div class="text-information">
+                                We categorize our members into two distinct groups:  
+                            </div>
+                            <ul>
+                                <li>passive</li>
+                                <li>active</li>
+                            </ul>
+                            <div class="text-information">
+                                Passive members are not obligated to participate in the partnership and have the 
+                                flexibility to learn at their own pace. However, this designation also results in a 
+                                relatively reduced number of voting rights.                                 
+                            </div>
+                            <div class="text-information">
+                                Active members, on the other hand, are highly engaged in the markets and engage 
+                                in daily discussions on positions and market developments. As an active member, 
+                                you are expected to vote on new positions, which requires a level of commitment 
+                                and contribution. It is important to note that members have the flexibility to 
+                                switch between these roles based on their interests and preferences.                                
+                            </div>                            
                         </div>
                     </div>
-                    <div class="information-item">
-                        <div class="information-title">
-                            <h3>Different presentations</h3>                        
-                        </div>  
-                        <div class="information-content">
-                            <p>Some more information about Item 1.</p>
+                </div>
+                <div class="information-item">
+                    <div class="information-title">
+                        Presentations    
+                        <i class="bi bi-chevron-right"></i>               
+                    </div>  
+                    <div class="information-content" id="content-presentations"> 
+                        <div class="text-information-block">
+                            <div class="text-information">
+                                Our club hosts two different types of presentations: passive meetings and active meetings.
+                            </div>
+                            <ul>
+                                <li>passive</li>
+                                <li>active</li>
+                            </ul>
+                            <div class="text-information">
+                                Passive meetings are led by the board or active members and focus on learning. 
+                                These interactive sessions begin with an introduction and a summary of macroeconomic 
+                                developments, followed by a presentation on a relevant topic, such as a stock or industry 
+                                trend. The session then progresses to a review of the club's portfolio, and concludes 
+                                with an after-dinner discussion.                              
+                            </div>
+                            <div class="text-information">
+                                Active meetings, on the other hand, are less structured and allow for pitches to be made 
+                                for new shares, as well as discussions on the previous week's market movements. 
+                                These meetings are geared more towards the active members of the club who are actively 
+                                engaged in trading.                              
+                            </div>  
+                            <div class="text-information">
+                                By offering both types of presentations, our investment club ensures that all 
+                                members have opportunities to learn and contribute in their own unique ways.                        
+                            </div>                           
                         </div>
                     </div>
-                    <div class="information-item">
-                        <div class="information-title">
-                            <h3>Communication</h3>                        
-                        </div>  
-                        <div class="information-content">
-                            <p>Some more information about Item 1.</p>
+                </div>
+                <div class="information-item">
+                    <div class="information-title">
+                        Communication         
+                        <i class="bi bi-chevron-right"></i>           
+                    </div>  
+                    <div class="information-content">
+                        <div class="text-information-block" id="content-comm">
+                            <div class="text-information">
+                                Three distinct communication methods are utilized, each serving its own specific purpose.
+                            </div>
+                            <div class="comm-blocks">
+                                <div class="comm-block" id="discord-comm">
+                                    <i class="bi bi-discord"></i>
+                                    <h4>Discord</h4>
+                                    <ul>
+                                        <li>Primary communication</li>
+                                        <li>Daily updates</li>
+                                        <ul>
+                                            <li>Macroeconomics</li>  
+                                            <li>Learning resources</li>
+                                        </ul>     
+                                        <li>Weekly updates</li> 
+                                        <ul> 
+                                            <li>Porftolio</li>                                             
+                                        </ul>            
+                                    </ul>
+                                </div>
+                                <div class="comm-block" id="drive-comm">
+                                    <i class="bi bi-google"></i>
+                                    <h4>Drive</h4>
+                                    <ul>
+                                        <li>Online storage space</li>
+                                            <ul>
+                                                <li>Excel portfolios </li>  
+                                                <li>Presentations</li>
+                                            </ul>                                              
+                                    </ul>
+                                </div>
+                                <div class="comm-block" id="messenger-comm">
+                                    <i class="bi bi-messenger"></i>
+                                    <h4>Messenger</h4>
+                                    <ul>
+                                        <li>Important messages</li>
+                                            <ul>
+                                                <li>Agenda of upcoming presentations</li>  
+                                                <li>Evenements</li>
+                                            </ul>                                              
+                                    </ul>
+                                </div>
+                            </div>                              
                         </div>
                     </div>
-                </div>               
+                </div> 
+                <div class="information-item">
+                    <div class="information-title">
+                        Portfolio    
+                        <i class="bi bi-chevron-right"></i>               
+                    </div>  
+                    <div class="information-content" id="content-presentations"> 
+                        <div class="text-information-block">
+                            <div class="portfolio-block">  
+                                <div class="title-card">
+                                    <i class="bi bi-file-earmark-ruled-fill"></i>
+                                    <h4>Our portfolio</h4>
+                                </div>
+                                <div class="text-information">
+                                    In the Excel file, you will find a comprehensive overview of our current portfolio holdings, 
+                                    including the corresponding profit figures for each position. Additionally, the file presents 
+                                    a detailed analysis of our portfolio's performance over the course of the year, with a 
+                                    comparison to the S&P index. There is a wealth of insightful information available in the 
+                                    document beyond these key highlights.                      
+                                </div>  
+                                <i class="bi bi-filetype-xlsx"></i>
+                                <!-- <div class="picture-portfolio-container"> -->
+                                </div>
+                            </div>             
+                        </div>
+                    </div>
+                </div>             
             </div>
         </div>
     </div>
 </section>
-<section class="section-4se"></section>
+<section class="section-4"></section>
 </main>
 {% endblock %}

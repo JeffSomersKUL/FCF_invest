@@ -8,6 +8,10 @@ let navbar = $(".navbar");
 
 let stats = $(".section-2 .container-fluid")
 
+let sec3Left = $(".section-3 .how-to-work-col")
+
+let sec3Right = $(".section-3 .items-col")
+
 $(window).scroll(function () {
   // get the complete hight of window
   //let oTop = window.innerHeight - $(".section-2").offset().top;
@@ -17,10 +21,17 @@ $(window).scroll(function () {
     navbar.removeClass("sticky");
   }
 
-  if ($(window).scrollTop() + window.innerHeight >= $(".section-2").offset().top) {
-    console.log("yes")
+  if ($(window).scrollTop() + window.innerHeight >= $(".section-2").offset().top + $(".section-2").height() * (4/5)) {
     stats.removeClass("hidden");
     stats.addClass("up-in")
+  }
+
+  if ($(window).scrollTop() + window.innerHeight >= $(".section-3").offset().top + 70) {
+    sec3Left.removeClass("hidden");
+    sec3Left.addClass("left-in")
+
+    sec3Right.removeClass("hidden");
+    sec3Right.addClass("right-in")
   }
 });
 
