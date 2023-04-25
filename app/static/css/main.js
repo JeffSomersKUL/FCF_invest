@@ -1,8 +1,4 @@
-/**
- *
- *  sticky navigation
- *
- */
+// ############ for the Nav bar ########################
 
 let navbar = $(".navbar");
 
@@ -11,6 +7,7 @@ let stats = $(".section-2 .container-fluid")
 let sec3Left = $(".section-3 .how-to-work-col")
 
 let sec3Right = $(".section-3 .items-col")
+
 
 $(window).scroll(function () {
   // get the complete hight of window
@@ -26,7 +23,7 @@ $(window).scroll(function () {
     stats.addClass("up-in")
   }
 
-  if ($(window).scrollTop() + window.innerHeight >= $(".section-3").offset().top + 70) {
+  if ($(window).scrollTop() + window.innerHeight >= $(".section-3").offset().top + 200) {
     sec3Left.removeClass("hidden");
     sec3Left.addClass("left-in")
 
@@ -35,13 +32,70 @@ $(window).scroll(function () {
   }
 });
 
+
+
+
+// ############ for the how to work section ########################
+
+const portfolioItem = document.querySelector('#portfolio');
+
+const portfolioContent = document.querySelector("#content-portfolio")
+const contentPortfolioSectionWidth = portfolioContent.offsetWidth; 
+
+const portfolioContentContainer = document.querySelector('#content-portfolio .information-container')
+const paddingportfolioContentContainer = parseInt(window.getComputedStyle(portfolioContentContainer).getPropertyValue('padding'));
+
+const cardPortfolio = document.querySelector('.portfolio-block');
+const paddingCardPortfolio = parseInt(window.getComputedStyle(cardPortfolio).getPropertyValue('padding'));
+
+
+const percentageWidthFront = 0.5
+const percentageWidthBack = 0.9
+
+const cardFront = document.querySelector('.portfolio-block-front');
+const cardBack = document.querySelector('.portfolio-block-back');
+
+
+
+const items = document.querySelectorAll('.information-item');
+
+
+// setup for the front of the card in the beginning
+
+cardPortfolio.style.width = percentageWidthFront*contentPortfolioSectionWidth + 2*paddingCardPortfolio + 'px';
+cardFront.style.width = percentageWidthFront*contentPortfolioSectionWidth + 'px';
+
+const cardFrontHeight = cardFront.clientHeight;
+cardPortfolio.style.height = cardFrontHeight + 2*paddingCardPortfolio + 'px';
+
+
+
+
 function expand(item) {
   const content = item.querySelector('.information-content');
-  // Get the height of the content in the expanded state
-  const contentHeight = content.scrollHeight;
+
+  if (content.id == "content-portfolio"){
+    if (cardPortfolio.classList.contains('flipped')){
+      // Get the height of the content in the expanded state
+      const cardBackHeight = document.querySelector('.portfolio-block-back').clientHeight;
+      contentHeightPortfolio = cardBackHeight + 2*paddingCardPortfolio + 2*paddingportfolioContentContainer + 'px';
+      // Set the height of the div to the height of the content
+      content.style.height = contentHeightPortfolio;
+    }else{
+      // Get the height of the content in the expanded state
+      contentHeightPortfolio = cardFrontHeight + 2*paddingCardPortfolio + 2*paddingportfolioContentContainer + 'px';
+      // Set the height of the div to the height of the content
+      content.style.height = contentHeightPortfolio;
+    }
+
+  }else{
+    // Get the height of the content in the expanded state
+    contentHeight = content.scrollHeight + 'px';
+    // Set the height of the div to the height of the content
+    content.style.height = contentHeight;
+  }
+
   
-  // Set the height of the div to the height of the content
-  content.style.height = `${contentHeight}px`;
 }
 
 function collapse(item) {
@@ -50,10 +104,12 @@ function collapse(item) {
   content.style.height = '0';
 }
 
-const items = document.querySelectorAll('.information-item');
+
 
 items.forEach(item => {
-  item.addEventListener('click', () => {
+  const buttonContainer = item.querySelector('.information-title')
+
+  buttonContainer.addEventListener('click', () => {
     if (item.classList.contains('active')) {
       item.classList.remove('active');
       collapse(item)
@@ -65,5 +121,32 @@ items.forEach(item => {
       item.classList.add('active');
       expand(item)
     }
+
   });
 });
+
+const excelSwitchButton = document.querySelectorAll('.excel-button');
+
+excelSwitchButton.forEach(excelSwitchButtons =>{
+  excelSwitchButtons.addEventListener('click', () =>{
+  cardPortfolio.classList.toggle('flipped')
+  if (cardPortfolio.classList.contains('flipped')){
+    cardPortfolio.style.width = percentageWidthBack*contentPortfolioSectionWidth + 2*paddingCardPortfolio + 'px';
+    cardBack.style.width = percentageWidthBack*contentPortfolioSectionWidth + 'px';
+
+    const cardBackHeight = cardBack.clientHeight;
+    cardPortfolio.style.height = cardBackHeight + 2*paddingCardPortfolio + 'px';
+
+    portfolioContent.style.height = cardBackHeight + 2*paddingCardPortfolio + 2*paddingportfolioContentContainer + 'px';
+
+  }else{
+    cardPortfolio.style.width = percentageWidthFront*contentPortfolioSectionWidth + 2*paddingCardPortfolio + 'px';
+    cardFront.style.width = percentageWidthFront*contentPortfolioSectionWidth + 'px';
+
+    const cardFrontHeight = cardFront.clientHeight;
+    cardPortfolio.style.height = cardFrontHeight + 2*paddingCardPortfolio + 'px';
+
+    portfolioContent.style.height = cardFrontHeight + 2*paddingCardPortfolio + 2*paddingportfolioContentContainer + 'px';
+  }
+})
+})

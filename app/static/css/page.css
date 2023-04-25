@@ -16,6 +16,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
 * {
   box-sizing: border-box;
 }
@@ -355,7 +357,7 @@ transform-origin: bottom left;
   width: 100%;
   background: var(--primary-color);
   z-index: 9999;
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in-out;
 }
 
 /********* section 1 *********/
@@ -382,6 +384,7 @@ transform-origin: bottom left;
   padding: 1rem;
   gap: 1rem;
   transition: box-shadow 300ms ease, transform 300ms ease;
+  border-radius: 5px;
 }
 
 .feature-card:hover{
@@ -405,6 +408,7 @@ transform-origin: bottom left;
   font-size: 15px;
   color: #27304bb5;
   height: 15rem;
+  font-family: 'Raleway', sans-serif;
 }
 
 /********* section 2 *********/
@@ -507,6 +511,7 @@ transform-origin: bottom left;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  margin-bottom: 4rem;
 }
 
 .title-how-to-work{
@@ -534,7 +539,7 @@ transform-origin: bottom left;
   flex-direction: column;
   gap:25px;
   align-items: center;
-  margin-top: 65px;
+  margin-top: 100px;
 }
 
 .information-item{
@@ -554,7 +559,7 @@ transform-origin: bottom left;
 }
 
 .text-information{
-  margin:5px 0
+  margin-bottom: 15px;
 }
 
 #content-members li{
@@ -562,8 +567,8 @@ transform-origin: bottom left;
   font-size: 17;
 }
 
-.text-information-block{
-  padding: 15px 20px;
+.information-container{
+  padding: 30px 20px;
 }
 
 .information-title .bi{
@@ -584,17 +589,16 @@ transform-origin: bottom left;
 .information-content {
   overflow: hidden;
   height: 0;
-  transition: height 500ms ease;
+  transition: height 800ms ease;
   font-family: 'Raleway', sans-serif;
   color: #27304bb5;
 }
 
-.comm-blocks{
+.info-blocks{
   display: flex;
   width: 100%;
   justify-content: center;
   gap:15px;
-  margin-top: 10px
 }
 
 #content-comm .row{
@@ -603,17 +607,30 @@ transform-origin: bottom left;
 
 #discord-comm {
  background-color: #8103ea21;
+ width: 33%
 }
 
 #drive-comm {
   background-color: #ea020221;
+  width: 33%
 }
 
 #messenger-comm {
   background-color: #077fff21;
+  width: 33%
 }
 
-.comm-block {
+#active-presentation{
+  background-color: #407bb97d;
+  width: 45%;
+}
+
+#passive-presentation{
+  background-color: #75949d5c;
+  width: 45%;
+}
+
+.info-block {
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -623,27 +640,47 @@ transform-origin: bottom left;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.04);
 }
 
-.comm-block h4{
+.info-block h4{
   font-size: 1.1rem;
 }
 
-.comm-block ul{
+.info-block ul{
   font-size: 12;
   padding-left: 10;
 }
 
 .portfolio-block{
   padding: 15px;
-  display: flex;
   gap: 10px;
-  width: 100%;
   border-radius: 5px;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.04);
   background-color: #15ea0321;
-  flex-direction: column;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease, width 800ms ease, height 800ms ease;;
 }
 
+.portfolio-block-front{
+  flex-direction: column;
+  display: flex;
+  position: absolute;
+  backface-visibility: hidden;
+  transform: rotateY(0deg);
+}
 
+.portfolio-block-back{
+  position: absolute;
+  height: 260px;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio-block.flipped{
+  transform: rotateY(180deg);
+}
 
 .portfolio-block i{
   font-size: 1.1rem;
@@ -654,24 +691,73 @@ transform-origin: bottom left;
   margin-top: 10px;
 }
 
-.portfolio-block .text-information{
+
+.portfolio-block ul{
   font-size: 12;
+  padding-left: 10;
 }
 
 .picture-portfolio-container{
-  width: 90%;
-  height: 220px;
-  border: 2px solid #0f6a076b;
   border-radius: 10px;
   background-image: url("../images/portfolio.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  position: absolute;
+  z-index: 2;
+  box-shadow: inset 0 0 23px rgba(0,0,0,0.2);
+  width: 85%;
+  height: 90%;
 }
+
+#content-portfolio .information-container{
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+}
+
+.excel-button{
+  padding: 5px;
+  background-color: #0f6a07;
+  border-radius: 5px;
+  width: fit-content;
+  color: white;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.04);
+  position: absolute;
+  right: 0;
+  transition: all 700ms cubic-bezier(.23, 1, 0.32, 1);
+  cursor: pointer;
+  z-index: 3;
+  top: 0;
+}
+
+.excel-button:hover{
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.excel-button:active{
+  box-shadow: none;
+  transform: translateY(0);
+}
+
 
 /********* section 4 *********/
 
 .section-4{
-  height: 20rem;
+  padding: 8rem 0;
+  height: 45rem;
+}
+
+.contact-us{
+  padding: 1rem 4rem
+}
+
+/********* footer *********/
+
+footer{
+  background-color: var(--primary-color);
+  height: 30rem;
+  box-shadow: inset 0 22px 22px -16px rgba(0,0,0,0.5);
 }
 
