@@ -8,6 +8,10 @@ let sec3Left = $(".section-3 .how-to-work-col")
 
 let sec3Right = $(".section-3 .items-col")
 
+let sec4Left = $(".section-4 .form-col")
+
+let sec4Right = $(".section-4 .contact-us-col")
+
 
 $(window).scroll(function () {
   // get the complete hight of window
@@ -30,9 +34,15 @@ $(window).scroll(function () {
     sec3Right.removeClass("hidden");
     sec3Right.addClass("right-in")
   }
+
+  if ($(window).scrollTop() + window.innerHeight >= $(".section-4").offset().top + 200) {
+    sec4Left.removeClass("hidden");
+    sec4Left.addClass("left-in")
+
+    sec4Right.removeClass("hidden");
+    sec4Right.addClass("right-in")
+  }
 });
-
-
 
 
 // ############ for the how to work section ########################
