@@ -160,3 +160,17 @@ excelSwitchButton.forEach(excelSwitchButtons =>{
   }
 })
 })
+
+document.addEventListener('DOMContentLoaded', function () {
+  const navbarToggler = document.getElementById('navbar-toggler');
+  const offcanvas = document.getElementById('offcanvas');
+  const closeOffcanvas = document.getElementById('close-offcanvas');
+
+  navbarToggler.addEventListener('click', function () {
+      offcanvas.classList.add('show');
+  });
+
+  closeOffcanvas.addEventListener('click', function () {
+      offcanvas.classList.remove('show');
+  });
+});
