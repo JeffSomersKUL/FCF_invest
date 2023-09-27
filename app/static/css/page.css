@@ -198,27 +198,10 @@ header {
   z-index: 1;
 }
 
-
-nav a {
-  font-family: 'Varela', sans-serif;
-  font-size: 0.9em;
-  color: whitesmoke;
-  font-weight: 600;
-}
-
-nav button {
-  color: white;
-  border: 1.5px solid white !important;
-}
-
 .hamburger-button {
   font-size: 200%;
   cursor: pointer;
   color: white;
-}
-
-nav a:hover {
-  color: whitesmoke;
 }
 
 nav .navbar-place-holder {
@@ -232,6 +215,20 @@ nav .navbar {
   height: var(--height-navbar);
   top: 0;
   position: absolute;
+}
+
+.nav-button{
+  font-family: 'Varela', sans-serif;
+  font-size: 0.9em;
+  color: whitesmoke;
+  font-weight: 600;
+  margin: 0.9em 0;
+  padding: 0 0.9rem;
+  width: fit-content;
+}
+
+.nav-button:hover{
+  color: whitesmoke;
 }
 
 nav .nav-item {
@@ -248,16 +245,29 @@ nav .nav-item {
 }
 
 .offcanvas {
-  width: 55vw;
+  width: 35vw;
   position: fixed;
   top: 0;
-  right: -55vw;
+  right: -35vw;
   height: 100vh;
-  background-color: #09549f;
+  background-color: #0c4a8c;
   padding: 10px;
-  z-index: 999;
+  z-index: 1041;
   overflow-x: hidden;
-  transition: right 0.3s;
+  transition: right 0.5s;
+  display: none;
+}
+
+.show-div{
+  display: block !important;
+}
+
+.offcanvas #close-offcanvas{
+  float:right;
+  cursor: pointer;
+  font-size: 120%;
+  color: whitesmoke;
+  margin-right: 0.5rem;
 }
 
 .offcanvas.show {
@@ -619,7 +629,7 @@ nav .nav-item {
 
 .title-how-to-work {
   font-family: 'Playfair Display', serif;
-  font-size: 45;
+  font-size: 45px;
   color: var(--primary-color);
   padding: 16px 0;
   width: 100%;
