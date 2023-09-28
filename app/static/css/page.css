@@ -26,7 +26,7 @@
 }
 
 body {
-  background-color: white
+  background-color: white;
 }
 
 /* header,
@@ -193,6 +193,10 @@ header {
   padding-left: 1rem;
 }
 
+.navbar-brand:hover{
+  color: white;
+}
+
 .navbar-background {
   background-color: var(--light-blue);
   z-index: 1;
@@ -222,8 +226,8 @@ nav .navbar {
   font-size: 0.9em;
   color: whitesmoke;
   font-weight: 600;
-  margin: 0.9em 0;
-  padding: 0 0.9rem;
+  margin: 0.9rem 0;
+  padding: 0 0.2rem;
   width: fit-content;
 }
 
@@ -232,7 +236,7 @@ nav .navbar {
 }
 
 nav .nav-item {
-  padding: 0.9em;
+  padding: 0.2rem 1rem;
 }
 
 .nav-header-background {
@@ -244,34 +248,38 @@ nav .nav-item {
   z-index: 2;
 }
 
+.navbar-toggler{
+  padding:0;
+  border:0;
+}
+
 .offcanvas {
-  width: 35vw;
-  position: fixed;
-  top: 0;
-  right: -35vw;
-  height: 100vh;
   background-color: #0c4a8c;
   padding: 10px;
-  z-index: 1041;
-  overflow-x: hidden;
-  transition: right 0.5s;
-  display: none;
 }
 
-.show-div{
-  display: block !important;
+.offcanvas-body{
+  width: 100%;
+  padding:0
 }
 
-.offcanvas #close-offcanvas{
-  float:right;
-  cursor: pointer;
-  font-size: 120%;
-  color: whitesmoke;
-  margin-right: 0.5rem;
+.offcanvas-header{
+  padding:0
 }
 
-.offcanvas.show {
-  right: 0;
+.offcanvas-sm {
+  --bs-offcanvas-width: min(40vw, 250px) !important;
+}
+
+.btn-close{
+  float: right;
+}
+
+.right-float-close{
+  float: right;
+  width: 100%;
+  padding: 0 1rem;
+  padding-top: 0.5rem;
 }
 
 .nav-header-background .blue-filter {
@@ -417,7 +425,7 @@ nav .nav-item {
   width: 100%;
   transform: scaleX(0);
   height: 2px;
-  bottom: 0;
+  bottom: -2px;
   left: 0;
   background-color: white;
   transform-origin: bottom right;
@@ -544,7 +552,6 @@ nav .nav-item {
   box-shadow:
     inset 0 -22px 22px -16px rgba(0, 0, 0, 0.5),
     inset 0 22px 22px -16px rgba(0, 0, 0, 0.5);
-  height: var(--height-section-2);
   position: relative;
 }
 
@@ -560,11 +567,13 @@ nav .nav-item {
 
 .section-2 .container-fluid {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 2%;
   width: 100%;
   height: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 3rem 10%;
 }
 
 .stat {
@@ -573,7 +582,6 @@ nav .nav-item {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 17rem;
 }
 
 .stat-icon {
