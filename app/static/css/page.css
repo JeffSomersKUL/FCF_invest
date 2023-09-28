@@ -568,12 +568,78 @@ nav .nav-item {
 .section-2 .container-fluid {
   display: flex;
   align-items: center;
-  gap: 2%;
   width: 100%;
   height: 100%;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 3rem 10%;
+}
+
+@media (min-width:800px) and (max-width:1104px) {
+  .section-2 .container-fluid{
+    padding: 2rem 10% !important;
+  }
+
+  .stat-icon{
+    height: 5rem !important;
+  }
+
+  .stat-number{
+    font-size: 1.3rem !important;
+  }
+
+  .stat-text{
+    font-size: 1.1rem !important;
+  }
+
+  .stat{
+    height: 12rem !important;
+  }
+}
+
+@media (min-width:570px) and (max-width:800px) {
+  .section-2 .container-fluid{
+    padding: 2rem 10% !important;
+  }
+
+  .stat-icon{
+    height: 4rem !important;
+  }
+
+  .stat-number{
+    font-size: 1.2rem !important;
+  }
+
+  .stat-text{
+    font-size: 1rem !important;
+  }
+
+  .stat{
+    height: 11rem !important;
+  }
+}
+
+@media (max-width:570px) {
+  .section-2 .container-fluid{
+    padding: 1rem 10% !important;
+  }
+
+  .stat-icon{
+    height: 3.5rem !important;
+  }
+
+  .stat-number{
+    font-size: 1rem !important;
+  }
+
+  .stat-text{
+    font-size: 0.8rem !important;
+  }
+
+  .stat{
+    height: 10rem !important;
+    width: 50% !important;
+  }
 }
 
 .stat {
@@ -582,10 +648,11 @@ nav .nav-item {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 25%;
 }
 
 .stat-icon {
-  width: 6rem;
+  height: 6rem;
   filter: brightness(0) invert(1);
   margin-bottom: 1rem;
   transition: all 500ms ease;
@@ -609,11 +676,11 @@ nav .nav-item {
 }
 
 .stat:hover .stat-number {
-  font-size: 2rem;
+  transform: scale(1.2);
 }
 
 .stat:hover .stat-text {
-  font-size: 1.7rem;
+  transform: scale(1.2);
 }
 
 /********* section 3 *********/
