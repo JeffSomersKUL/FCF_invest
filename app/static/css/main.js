@@ -21,10 +21,7 @@ $(window).scroll(function () {
     navbar.removeClass("sticky");
   }
 
-  if (
-    $(window).scrollTop() + window.innerHeight >=
-    $(".section-2").offset().top + $(".section-2").height() * (4 / 5)
-  ) {
+  if ($(window).scrollTop() + window.innerHeight >= $(".section-2").offset().top + $(".section-2").height() * (4 / 5)) {
     stats.removeClass("hidden");
     stats.addClass("up-in");
   }
@@ -46,66 +43,14 @@ $(window).scroll(function () {
   }
 });
 
-// ############ for the how to work section ########################
-
-const portfolioItem = document.querySelector("#portfolio");
-
-const portfolioContent = document.querySelector("#content-portfolio");
-const contentPortfolioSectionWidth = portfolioContent.offsetWidth;
-
-const portfolioContentContainer = document.querySelector(
-  "#content-portfolio .information-container"
-);
-const paddingportfolioContentContainer = parseInt(
-  window.getComputedStyle(portfolioContentContainer).getPropertyValue("padding")
-);
-
-const cardPortfolio = document.querySelector(".portfolio-block");
-const paddingCardPortfolio = parseInt(
-  window.getComputedStyle(cardPortfolio).getPropertyValue("padding")
-);
-
-const percentageWidthFront = 0.5;
-const percentageWidthBack = 0.9;
-
-const cardFront = document.querySelector(".portfolio-block-front");
-const cardBack = document.querySelector(".portfolio-block-back");
-
 const items = document.querySelectorAll(".information-item");
-
-// setup for the front of the card in the beginning
-
-cardPortfolio.style.width =
-  percentageWidthFront * contentPortfolioSectionWidth + 2 * paddingCardPortfolio + "px";
-cardFront.style.width = percentageWidthFront * contentPortfolioSectionWidth + "px";
-
-const cardFrontHeight = cardFront.clientHeight;
-cardPortfolio.style.height = cardFrontHeight + 2 * paddingCardPortfolio + "px";
 
 function expand(item) {
   const content = item.querySelector(".information-content");
-
-  if (content.id == "content-portfolio") {
-    if (cardPortfolio.classList.contains("flipped")) {
-      // Get the height of the content in the expanded state
-      const cardBackHeight = document.querySelector(".portfolio-block-back").clientHeight;
-      contentHeightPortfolio =
-        cardBackHeight + 2 * paddingCardPortfolio + 2 * paddingportfolioContentContainer + "px";
-      // Set the height of the div to the height of the content
-      content.style.height = contentHeightPortfolio;
-    } else {
-      // Get the height of the content in the expanded state
-      contentHeightPortfolio =
-        cardFrontHeight + 2 * paddingCardPortfolio + 2 * paddingportfolioContentContainer + "px";
-      // Set the height of the div to the height of the content
-      content.style.height = contentHeightPortfolio;
-    }
-  } else {
-    // Get the height of the content in the expanded state
-    contentHeight = content.scrollHeight + "px";
-    // Set the height of the div to the height of the content
-    content.style.height = contentHeight;
-  }
+  // Get the height of the content in the expanded state
+  contentHeight = content.scrollHeight + "px";
+  // Set the height of the div to the height of the content
+  content.style.height = contentHeight;
 }
 
 function collapse(item) {
@@ -132,44 +77,15 @@ items.forEach((item) => {
   });
 });
 
-const excelSwitchButton = document.querySelectorAll(".excel-button");
-
-excelSwitchButton.forEach((excelSwitchButtons) => {
-  excelSwitchButtons.addEventListener("click", () => {
-    cardPortfolio.classList.toggle("flipped");
-    if (cardPortfolio.classList.contains("flipped")) {
-      cardPortfolio.style.width =
-        percentageWidthBack * contentPortfolioSectionWidth + 2 * paddingCardPortfolio + "px";
-      cardBack.style.width = percentageWidthBack * contentPortfolioSectionWidth + "px";
-
-      const cardBackHeight = cardBack.clientHeight;
-      cardPortfolio.style.height = cardBackHeight + 2 * paddingCardPortfolio + "px";
-
-      portfolioContent.style.height =
-        cardBackHeight + 2 * paddingCardPortfolio + 2 * paddingportfolioContentContainer + "px";
-    } else {
-      cardPortfolio.style.width =
-        percentageWidthFront * contentPortfolioSectionWidth + 2 * paddingCardPortfolio + "px";
-      cardFront.style.width = percentageWidthFront * contentPortfolioSectionWidth + "px";
-
-      const cardFrontHeight = cardFront.clientHeight;
-      cardPortfolio.style.height = cardFrontHeight + 2 * paddingCardPortfolio + "px";
-
-      portfolioContent.style.height =
-        cardFrontHeight + 2 * paddingCardPortfolio + 2 * paddingportfolioContentContainer + "px";
-    }
-  });
-});
-
-function showOffCanvas(){
+function showOffCanvas() {
   $("#offcanvas").modal("show");
 }
 
-function closeOffCanvas(){
-  var offcanvas = document.getElementById("offcanvas")
+function closeOffCanvas() {
+  var offcanvas = document.getElementById("offcanvas");
   offcanvas.classList.add("show-div");
   $("#offcanvas").modal("hide");
   setTimeout(function () {
-    offcanvas.classList.remove("show-div")
+    offcanvas.classList.remove("show-div");
   }, 500);
 }
