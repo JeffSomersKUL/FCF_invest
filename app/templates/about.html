@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+
+<!-- new_page.html -->
+<html>
+<body>
+    <div class="about-header-background">
+        <div class="blue-filter"></div>
+        <div class="about-image"></div>
+        <h1 class="about-title">
+            About Us
+        </h1>
+    </div>
+
+    <div class="about-main-body-section">
+        Intro
+        <hr class="solid">
+        <h1 class="about-us-section-header">
+            Our purpose and values
+        </h1>       
+        <br>
+        Our purpose is to foster a community of high-value individuals who, through strategic investments, 
+        continuous learning, and collaborative networking, aspire to achieve financial prosperity and personal 
+        growth collectively.
+        <br>
+        <br>
+        Guided by principles of integrity, excellence, collaboration, and innovation, our values create an 
+        environment where individuals can thrive, learn, and invest together, fostering a culture of shared success.   
+        <hr class="solid">
+        <h1 class="about-us-section-header">
+            People and Leadership 
+        </h1>  
+        <br>
+        Lorem ipsum dolor sit amet. Id dignissimos dolorum ut cumque laborum ea porro temporibus ea rerum nemo qui 
+        internos minima et dignissimos possimus ad laudantium veniam. Sit pariatur rerum est magnam voluptas eum 
+        perspiciatis magnam. Est eveniet tempora sed culpa quaerat cum quisquam nostrum. Sit quia molestiae ut quia 
+        voluptatem in voluptatem eligendi.
+        <br>
+        <br> 
+        <a href="{{ url_for('leadership')}}">
+            Leadership
+        </a>
+    </div>
+</body>
+</html>
+
+{% endblock %}
