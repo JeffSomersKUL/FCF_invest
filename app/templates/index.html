@@ -17,17 +17,32 @@
                 investment opportunities.
             </p>
             <div class="buttons-container">
-                <div class="header-button-contact">Contact us</div>
-                <div class="header-button-learn ">
-                    Learn more
-                    <i class="bi bi-arrow-right-short"></i>
-                </div>
+                <a href="#section-4">
+                    <button class="header-button-contact">
+                        Contact us
+                    </button>
+                </a>
+                <a href="{{ url_for('about') }}">
+                    <button class="btn header-button-learn">
+                        Learn more
+                        <i class="bi bi-arrow-right-short"></i>
+                    </button>
+                </a>
             </div>
         </div>
     </div>
 </div>
 
 {% endblock %}
+
+<!-- index.html -->
+<html>
+<body>
+    <h1>Home Page</h1>
+    <a href="{{ url_for('new_page') }}"><button>Go to New Page</button></a>
+</body>
+</html>
+
 
 {% block app_content %}
 
@@ -302,38 +317,38 @@
             </div>
         </div>
     </section>
-    <section class="section-4">
+    <section class="section-4" id="section-4">
         <div class="container-fluid site-width">
             <div class="row">
                 <div class="col-md-5 col-12 form-col hidden">
                     <div class="contact-us-card">
-                        <form class="mb-0">
+                        <form class="mb-0" action="{{ url_for('submit_form') }}" method="post">
                             <div class="personal-information-section">
                                 <div class="row-name">
                                     <div class="col-name">
                                         <div class="form-group">
-                                            <input type="text" class="form-underline" placeholder="First Name">
+                                            <input type="text" id="firstname" name="firstname" class="form-underline" placeholder="First Name">
                                         </div>      
                                     </div> 
                                     <div class="col-name">
                                         <div class="form-group">
-                                            <input type="text" class="form-underline" placeholder="Last Name">
+                                            <input type="text" id="lastname" name="lastname" class="form-underline" placeholder="Last Name">
                                         </div>                            
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-underline" aria-describedby="emailHelp" placeholder="Email">
+                                    <input type="email" id="email" name="email" class="form-underline" aria-describedby="emailHelp" placeholder="Email">
                                 </div>                                   
                             </div>
                             <div class="email-section">
                                 <div>
                                     <div class="form-group">
-                                        <input type="text" class="form-underline" placeholder="Subject">
+                                        <input type="text" id="subject" name="subject" class="form-underline" placeholder="Subject">
                                     </div> 
                                 </div>
                                 <div>
                                     <div class="form-group">
-                                        <textarea type="text" class="form-underline" rows="5" placeholder="Email content"></textarea>
+                                        <textarea type="text" id="content" name="content" class="form-underline" rows="5" placeholder="Email content"></textarea>
                                     </div> 
                                 </div>                                
                             </div>
@@ -354,6 +369,25 @@
                     </div>
                     
                 </div>
+
+                <!-- <form action="{{ url_for('submit_form') }}" method="post">
+                    <label class="form-underline" for="firstname">First Name:</label>
+                    <input type="text" id="firstname" name="First Name" required >
+                    <br>
+                    <label class="form-underline" for="lastname">Last Name:</label>
+                    <input type="text" id="lastname" name="Last Name" required>
+                    <br>
+                    <label class="form-underline" for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <br>
+                    <label class="form-underline" for="subject">Subject:</label>
+                    <input type="email" id="subject" name="Subject" required>
+                    <br>
+                    <label class="form-underline" for="emailcontent">Content:</label>
+                    <input type="email" id="emailcontent" name="Content" required>
+                    <br>
+                    <button type="submit">Submit</button>
+                </form> -->
                 <div class="col-md-7 col-12 hidden contact-us-col">
                     <div class="title-how-to-work">
                         Contact us
