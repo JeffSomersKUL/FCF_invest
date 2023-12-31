@@ -1,4 +1,10 @@
-{% extends "base.html" %} {% block header %}
+{% extends "base.html" %} 
+{% block additional_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+
+{% block header %}
 <div class="nav-header-background">
   <div class="blue-filter"></div>
   <div class="city-image"></div>
@@ -14,11 +20,15 @@
       </p>
       <p class="d-block d-sm-none">An investment club with young minds, learning and growing together.</p>
       <div class="buttons-container">
-        <div class="header-button-contact">Contact us</div>
-        <div class="header-button-learn">
-          Learn more
-          <i class="bi bi-arrow-right-short"></i>
-        </div>
+        <a href="#home/contact-us">
+          <button class="header-button-contact">Contact us</button>
+        </a>
+        <a href="{{ url_for('about')}}">
+          <button class="header-button-learn">
+            Learn more
+            <i class="bi bi-arrow-right-short"></i>
+          </button>
+        </a>
       </div>
     </div>
   </div>
@@ -28,7 +38,7 @@
 
 <main>
   <section class="section-1">
-    <div class="container-fluid site-width left-in">
+    <div class="container-fluid site-width hidden">
       <div class="feature-card">
         <div class="feature-card-content">
           <img src="../static/images/learning-blue.png" class="feature-icon" />
@@ -243,73 +253,72 @@
       </div>
     </div>
   </section>
-  <section class="section-4">
+  <section class="section-4" id="home/contact-us">
     <div class="container-fluid site-width">
       <div class="row">
         <div class="col-lg-5 col-12 form-col hidden">
           <div class="contact-us-card">
-            <form class="mb-0">
+            <form class="mb-0" id="contact-form">
               <div class="personal-information-section">
                 <div class="row-name">
                   <div class="col-name">
                     <div class="form-group">
-                      <input type="text" class="form-underline" placeholder="First Name" />
+                      <input type="text" id="firstname" name="fname" class="form-underline" placeholder="First Name">
                     </div>
                   </div>
                   <div class="col-name">
                     <div class="form-group">
-                      <input type="text" class="form-underline" placeholder="Last Name" />
+                      <input type="text" id="lastname" name="lname" class="form-underline" placeholder="Last Name">
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-underline" aria-describedby="emailHelp" placeholder="Email" />
+                  <input type="email" id="email" name="email" class="form-underline" aria-describedby="emailHelp"
+                    placeholder="Email">
                 </div>
               </div>
               <div class="email-section">
                 <div>
                   <div class="form-group">
-                    <input type="text" class="form-underline" placeholder="Subject" />
+                    <input type="text" id="subject" name="subject" class="form-underline" placeholder="Subject">
                   </div>
                 </div>
                 <div>
                   <div class="form-group">
-                    <textarea type="text" class="form-underline" rows="5" placeholder="Email content"></textarea>
+                    <textarea type="text" id="content" name="content" class="form-underline" rows="5"
+                      placeholder="Email Content"></textarea>
                   </div>
                 </div>
               </div>
               <div class="send-section">
-                <button class="button-send">
+                <button class="button-send" type="submit" id="form-submit">
                   <div class="svg-wrapper-1">
                     <div class="svg-wrapper">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                         <path fill="none" d="M0 0h24v24H0z"></path>
-                        <path
-                          fill="currentColor"
-                          d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                        <path fill="currentColor"
+                          d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
+                        </path>
                       </svg>
                     </div>
                   </div>
                   <span>Send</span>
                 </button>
               </div>
+              {{ form.hidden_tag() }}
+              <div id="feedback-form-container"></div>
             </form>
           </div>
         </div>
         <div class="col-lg-7 col-12 hidden contact-us-col">
           <div class="title-how-to-work">Contact us</div>
-          <div class="description-contact-us">
+          <div class="description-how-to-work">
             To join our investment club, get more information, or explore collaborating with us, please reach out to us
             using the provided form. We look forward to hearing from you in the future.
           </div>
-
           <div class="team-picture-container d-none d-lg-block">
             <div class="picture-team">
-
             </div>
-            <!-- <div class="team-picture">
-              <div class="team-picture-picture"></div>
-            </div> -->
           </div>
         </div>
       </div>
@@ -318,3 +327,57 @@
   </section>
 </main>
 {% endblock %}
+
+{% block extra_scripts %}
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  // JavaScript to handle form submission
+  $(document).ready(function () {
+    document.getElementById('contact-form').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent the default form submission
+      // display waiting circle
+      var feedbackDiv = document.getElementById('feedback-form-container');
+      feedbackDiv.innerHTML = '<div id="waiting-feedback"><div class="spinner-border" role="status"></div></div>';
+      feedbackDiv.style.height = feedbackDiv.scrollHeight + 'px';
+      // disbale button
+      var myButton = document.getElementById('form-submit');
+      myButton.disabled = true;
+
+      $.ajax({
+        type: 'POST',
+        url: '/submit_form',  // Flask route for form submission
+        data: $('#contact-form').serialize(),  // Serialize form data
+        success: function (response) {
+          // Handle the response as needed
+          console.log(response);
+          if (response.response == "success") {
+            // show successfull 
+            const successDiv = '<div class="alert alert-success" id="success-feedback" role="alert">We successfully received your message!</div>'
+            feedbackDiv.innerHTML = successDiv
+            feedbackDiv.style.height = feedbackDiv.scrollHeight + 'px';
+          }else if(response.response == "failed"){
+            const backendFailedDiv = '<div class="alert alert-warning" role="alert">Something went wrong on our side when saving your form, please try again later.</div>'
+            feedbackDiv.innerHTML = backendFailedDiv
+            feedbackDiv.style.height = feedbackDiv.scrollHeight + 'px';
+          }
+          else{
+            const notFilledDiv = '<div class="alert alert-danger" role="alert">Not all fields are filled in.</div>'
+            feedbackDiv.innerHTML = notFilledDiv
+            feedbackDiv.style.height = feedbackDiv.scrollHeight + 'px';
+            myButton.disabled = false;
+          }
+          // response if somthing not filled + enable button again
+        },
+        error: function (error) {
+          // response if something went wrong please retry or contact later
+          const warningDiv = '<div class="alert alert-warning" role="alert">Something went wrong on our side, please try again later.</div>'
+          feedbackDiv.innerHTML = warningDiv
+          feedbackDiv.style.height = feedbackDiv.scrollHeight + 'px';
+        }
+      });
+    })
+  });
+</script>
+<script src="{{ url_for('static', filename='css/header-appear.js') }}"></script>
+<script src="{{ url_for('static', filename='css/home.js') }}"></script>
+{% endblock extra_scripts %}

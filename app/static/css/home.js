@@ -1,6 +1,5 @@
 // ############ for the Nav bar ########################
-
-let navbar = $(".navbar");
+let featureCards = $(".section-1 .container-fluid");
 
 let stats = $(".section-2 .container-fluid");
 
@@ -12,13 +11,31 @@ let sec4Left = $(".section-4 .form-col");
 
 let sec4Right = $(".section-4 .contact-us-col");
 
+if ($(window).scrollTop() + window.innerHeight >= $(".section-1").offset().top ) {
+  featureCards.removeClass("hidden");
+  featureCards.addClass("left-in");
+}
+
+if ($(window).scrollTop() + window.innerHeight >= $(".section-3").offset().top + 200) {
+  sec3Left.removeClass("hidden");
+  sec3Left.addClass("left-in");
+
+  sec3Right.removeClass("hidden");
+  sec3Right.addClass("right-in");
+}
+
+if ($(window).scrollTop() + window.innerHeight >= $(".section-4").offset().top + 200) {
+  sec4Left.removeClass("hidden");
+  sec4Left.addClass("left-in");
+
+  sec4Right.removeClass("hidden");
+  sec4Right.addClass("right-in");
+}
+
 $(window).scroll(function () {
-  // get the complete hight of window
-  //let oTop = window.innerHeight - $(".section-2").offset().top;
-  if ($(window).scrollTop() >= $("header").offset().top + $("header").height()) {
-    navbar.addClass("sticky");
-  } else {
-    navbar.removeClass("sticky");
+  if ($(window).scrollTop() + window.innerHeight >= $(".section-1").offset().top + $(".section-1").height() * (4 / 5)) {
+    featureCards.removeClass("hidden");
+    featureCards.addClass("left-in");
   }
 
   if ($(window).scrollTop() + window.innerHeight >= $(".section-2").offset().top + $(".section-2").height() * (4 / 5)) {

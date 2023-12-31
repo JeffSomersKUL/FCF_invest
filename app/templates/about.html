@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block header %}
+<div class="about-header-background">
+    <div class="blue-filter"></div>
+    <div class="about-image"></div>
+</div>
+<div class="about-header-info">
+    <h1 class="about-title">
+        About Us
+    </h1>
+</div>
+{% endblock %}
+{% block app_content %}
+<div class="about-main-body-section site-width">
+    <div class="about-intro">
+        <div class="about-us-desc">
+            Embark on a journey of knowledge and friendship with FCF invest. We are a vibrant community
+            of young, ambitious individuals aged 20-30, dedicated to learning and growing together. Discover a space
+            where curiosity meets opportunity. Whether you're a seasoned investor or a newcomer, our club is designed
+            for you. Join us in becoming bigger, smarter, and more profitable together.
+        </div>
+    </div>
+    <div class="about-values">
+        <h1 class="about-us-section-header">
+            Our purpose and values
+        </h1>
+        <div class="about-us-desc">
+            <br>
+            Our purpose is to foster a community of high-value individuals who, through strategic investments,
+            continuous learning, and collaborative networking, aspire to achieve financial prosperity and personal
+            growth collectively.
+            <br>
+            <br>
+            Guided by principles of integrity, excellence, collaboration, and innovation, our values create an
+            environment where individuals can thrive, learn, and invest together, fostering a culture of shared success.
+            `
+        </div>
+    </div>
+    <div class="about-leadership">
+        <h1 class="about-us-section-header">
+            People and Leadership
+        </h1>
+        <div class="about-us-desc">
+            <br>
+            Lorem ipsum dolor sit amet. Id dignissimos dolorum ut cumque laborum ea porro temporibus ea rerum nemo qui
+            internos minima et dignissimos possimus ad laudantium veniam. Sit pariatur rerum est magnam voluptas eum
+            perspiciatis magnam. Est eveniet tempora sed culpa quaerat cum quisquam nostrum. Sit quia molestiae ut quia
+            voluptatem in voluptatem eligendi.
+            <br>
+            <br>
+        </div>
+        <div class="container-leadership">
+            <a href="{{ url_for('leadership')}}">
+                <button class="header-button-contact">
+                    Leadership
+                    <i class="bi bi-arrow-right-short"></i>
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='css/header-appear.js') }}"></script>
+<script src="{{ url_for('static', filename='css/about.js') }}"></script>
+{% endblock extra_scripts %}

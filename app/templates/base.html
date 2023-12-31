@@ -1,58 +1,50 @@
 {% block content %}
 <!DOCTYPE html>
+
 <head>
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-    crossorigin="anonymous" />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
   <title>{% block title %}FCF invest{% endblock %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="{{ url_for('static', filename='css/page.css') }}" rel="stylesheet" />
+  {% block additional_css %}{% endblock %}
 </head>
 
 <header>
   <nav>
     <div class="navbar-place-holder"></div>
     <div class="navbar navbar-expand-sm">
-      <div class="navbar-brand" href="#">FCF invest</div>
-      <div
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasNavbar"
+      <a class="navbar-brand" href="{{ url_for('index') }}">
+        FCF invest
+      </a>
+      <div class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar">
         <i class="bi bi-list hamburger-button"></i>
       </div>
-      <div
-        class="offcanvas offcanvas-end offcanvas-sm"
-        tabindex="-1"
-        id="offcanvasNavbar"
+      <div class="offcanvas offcanvas-end offcanvas-sm" tabindex="-1" id="offcanvasNavbar"
         aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-content">
           <div class="offcanvas-header">
             <div class="right-float-close">
-              <div type="button" class="close-offcanvas btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close">
-              </div>                 
+              <div type="button" class="close-offcanvas btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close">
+              </div>
             </div>
           </div>
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1">
-              <li class="nav-item">
-                <a class="nav-link hover-underline-animation nav-button" href="{{ url_for('index')}}"
-                  >Home
+              <li class="nav-item active">
+                <a class="nav-link hover-underline-animation nav-button" href="{{ url_for('index')}}">Home
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link hover-underline-animation nav-button" href="#">About</a>
+                <a class="nav-link hover-underline-animation nav-button" href="{{ url_for('about')}}">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link hover-underline-animation nav-button" href="#">Portfolio</a>
+                <a class="nav-link hover-underline-animation nav-button" href="{{ url_for('portfolio')}}">Portfolio</a>
               </li>
-            </ul>            
+            </ul>
           </div>
 
         </div>
@@ -66,49 +58,43 @@
 
 <footer>
   <div class="site-width container-fluid">
-    <div class="d-flex">
-      <div class="logo-col">
-        <div class="logo-container">
-          <img src="../static/images/logo.png"></img>
-        </div>
-        <div class="general-info">
-          <div>fcfinvest23@gmail.com</div>
-          <div>+32471437715</div>
-          <br />
+    <div class="footer-container">
+      <div class="logo-container">
+        <img class="logo" src="../static/images/fcf_logo.png"></img>
+      </div>
+      <div class="socials">
+        <div><b>Contact</b></div>
+        <div class="contact-entry">fcfinvest23@gmail.com</div>
+        <div class="contact-entry">+32471437715</div>
+        <div class="contact-entry adress">
           <div>Heidestraat 60</div>
           <div>2520 Ranst</div>
           <div>Belgium</div>
-          <br />
-          <div>VAT BE 0123.456.789</div>
         </div>
       </div>
-      <div class="info-col">
-        <div class="socials">
-          <div><b>Socials</b></div>
-          <div class="social-entry"><i class="bi bi-linkedin"></i>Linkedin</div>
-          <div class="social-entry"><i class="bi bi-facebook"></i>Facebook</div>
-          <div class="social-entry"><i class="bi bi-envelope"></i>Email</div>
-        </div>
-        <div class="socials">
-          <div><b>More</b></div>
-          <div class="social-entry">Privacy</div>
-          <div class="social-entry">Cookies</div>
-        </div>
+      <div class="socials">
+        <div><b>Socials</b></div>
+        <div class="social-entry"><i class="bi bi-linkedin"></i>Linkedin</div>
+        <div class="social-entry"><i class="bi bi-facebook"></i>Facebook</div>
+        <a class="social-entry" href="mailto:fcfinvest23@gmail.com"><i class="bi bi-envelope"></i>Email</a>
+      </div>
+      <div class="socials">
+        <div><b>More</b></div>
+        <div class="social-entry">Privacy</div>
+        <div class="social-entry">Cookies</div>
       </div>
     </div>
-    <div class="copy-text">Copyright © FCF Investment Club 2023. All rights reserved.</div>
+  </div>
+  <div class="copy-text"><div>BE 0804.341.420</div><div>Copyright © FCF invest MS. All rights reserved.</div></div>
   </div>
 </footer>
 
 {% endblock %} {% block scripts %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-  crossorigin="anonymous"></script>
-<script src="{{ url_for('static', filename='css/main.js') }}"></script>
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-  integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+  integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+{% block extra_scripts %}
+{% endblock extra_scripts %}
 {% endblock scripts %}
