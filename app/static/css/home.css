@@ -1,0 +1,5 @@
+@media (max-width:473px) {
+    header {
+        height: 100vh !important;
+    }
+}

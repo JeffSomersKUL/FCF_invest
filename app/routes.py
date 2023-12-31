@@ -1,21 +1,35 @@
-from app import app, mail
+from app import app, mail, db
 import os
-from flask import render_template, request
+from flask import jsonify, render_template, request, redirect, url_for
 from flask import send_from_directory
 from flask_mail import Mail, Message
+from flask_wtf import FlaskForm
+from wtforms import StringField, TextAreaField
+from wtforms.validators import DataRequired, Email
+from app.models import ContactFormData
+from sqlalchemy.exc import SQLAlchemyError
 
+class ContactForm(FlaskForm):
+    fname = StringField('First Name', validators=[DataRequired()])
+    lname = StringField('Last Name', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    subject = StringField('Subject', validators=[DataRequired()])
+    content = TextAreaField('Email Content', validators=[DataRequired()])
 
 @app.route("/favicon.ico")
 def favicon():
     return send_from_directory(
-        os.path.join(app.root_path, "static"),'favicon.ico'
+        os.path.join(app.root_path, "static"), "favicon.ico"
     )
+
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    form = ContactForm(request.form)
 
-@app.route("/leadership")
+    return render_template("home.html", form=form)
+
+@app.route("/about/leadership")
 def leadership():
     return render_template("leadership.html")
 
@@ -29,26 +43,46 @@ def portfolio():
 
 @app.route('/submit_form', methods=['POST'])
 def submit_form():
-    firstname = request.form.get('firstname')
-    lastname = request.form.get('lastname')
-    email = request.form.get('email')
-    subject = request.form.get('subject')
-    content = request.form.get('content')
+    form = ContactForm(request.form)
 
-    # Process the form data (e.g., save to a database)
+    if form.validate():
+        # Form data is valid
+        fname = form.fname.data
+        lname = form.lname.data
+        email = form.email.data
+        subject = form.subject.data
+        content = form.content.data
 
-    print(f"Form submitted! First Name: {firstname},  Last Name: {lastname}, Email: {email}, Subject: {subject}, Content: {content}")
+        print(f"Form received! First Name: {fname},  Last Name: {lname}, Email: {email}, Subject: {subject}, Content: {content}")
 
-    send_email(subject, email, 'fcfinvest23@gmail.com', content)
+        form_data = ContactFormData(fname=fname, lname=lname, email=email, subject=subject, content=content)
 
-    return render_template("index.html")
+        try:
+            # Attempt to add the data to the session and commit to the database
+            db.session.add(form_data)
+            db.session.commit()
+            return{"response": "success"}
+        except SQLAlchemyError as e:
+            # Handle the specific exception (e.g., IntegrityError)
+            db.session.rollback()  # Rollback the transaction to avoid leaving the database in an inconsistent state
+            return {"response": "failed"}
+    else:
 
-def send_email(subject, email, recipient, content):
-    msg = Message(subject, sender=email, recipients=[recipient], body=content)
+        return{"response": list(form.errors.keys())}
+    
 
-    try:
-        mail.send(msg)
-        print('Email sent successfully!')
-    except Exception as e:
-        print(f'Error sending email: {e}')
+@app.route("/cc7fccf50f9946b1e93dcc29946b13ef")
+def view_messages():
+    # Query all messages from the database
+    messages = ContactFormData.query.all()
+
+    return render_template('messages.html', messages=messages)
+
+@app.route('/delete_message/<int:message_id>')
+def delete_message(message_id):
+    message = ContactFormData.query.get(message_id)
+    if message:
+        db.session.delete(message)
+        db.session.commit()
+    return redirect(url_for('view_messages'))
 

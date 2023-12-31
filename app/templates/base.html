@@ -1,40 +1,55 @@
 {% block content %}
+<!DOCTYPE html>
 
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="{{ url_for('static', filename='css/page.css') }}" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
   <title>{% block title %}FCF invest{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="{{ url_for('static', filename='css/page.css') }}" rel="stylesheet" />
+  {% block additional_css %}{% endblock %}
 </head>
 
 <header>
   <nav>
     <div class="navbar-place-holder"></div>
-    <div class="navbar navbar-expand-lg">
-
+    <div class="navbar navbar-expand-sm">
       <a class="navbar-brand" href="{{ url_for('index') }}">
         FCF invest
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <i class="fas fa-align-right text-light"></i>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link hover-underline-animation" href="{{ url_for('index')}}" ,>Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link hover-underline-animation" href="{{ url_for('about')}}">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link hover-underline-animation" href="{{ url_for('portfolio')}}">Portfolio</a>
-          </li>
-        </ul>
+      <div class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar">
+        <i class="bi bi-list hamburger-button"></i>
       </div>
+      <div class="offcanvas offcanvas-end offcanvas-sm" tabindex="-1" id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-content">
+          <div class="offcanvas-header">
+            <div class="right-float-close">
+              <div type="button" class="close-offcanvas btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close">
+              </div>
+            </div>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1">
+              <li class="nav-item active">
+                <a class="nav-link hover-underline-animation nav-button" href="{{ url_for('index')}}">Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link hover-underline-animation nav-button" href="{{ url_for('about')}}">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link hover-underline-animation nav-button" href="{{ url_for('portfolio')}}">Portfolio</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </nav>
   {% block header %}{% endblock %}
 </header>
@@ -43,48 +58,43 @@
 
 <footer>
   <div class="site-width container-fluid">
-    <div class="d-flex">    
-        <div class="logo-col">
-          <div class="logo-container">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 126.652 90.373"><path d="M86.928 78.476c-17.74 0-32.129-14.374-32.129-32.12 0-17.736 14.389-32.119 32.129-32.119 10.644 0 20.076 5.169 25.919 13.129l13.806-.02c-7.099-14.79-22.219-25.003-39.725-25.003-22.355 0-40.811 16.663-43.641 38.23h-27.4c-1.089 0-.862-.43-.862-.43V18.716c0-2.176 2.386-3.048 2.386-3.048h28.522c1.307 0 .437-.653.437-.653V.653L45.933 0h-33.74c-3.23 0-6.645 2.521-8.734 5.43C.897 8.989 0 13.055 0 13.055v75.09c0 1.522 2.177 2.18 2.177 2.18h12.412c1.961 0 .653-.225.653-.225V52.889c0-1.096.645-.659.645-.659h27.408c2.874 21.53 21.311 38.144 43.633 38.144 17.402 0 32.443-9.968 39.594-24.608l-14.066.105c-5.871 7.661-15.121 12.605-25.528 12.605"/><path d="M86.928 31.022c5.296 0 9.965 2.309 12.727 6.394l12.627-.044c-3.691-10.425-13.646-17.898-25.354-17.898-14.84 0-26.886 12.035-26.886 26.882 0 14.846 12.046 26.883 26.886 26.883 11.558 0 21.417-7.281 25.216-17.517l-13.152.113c-2.813 3.573-7.169 5.863-12.063 5.863-8.466 0-15.337-6.873-15.337-15.343-.001-8.468 6.87-15.333 15.336-15.333"/></svg>        
-          </div>
-          <div class="general-info">
-            <div>fcfinvest23@gmail.com</div>
-            <div>+32471437715</div>
-            <br/>
-            <div>Heidestraat 60</div>
-            <div>2520 Ranst</div>
-            <div>Belgium</div>
-            <br/>
-            <div>BE 0804.341.420</div>
-          </div>
-        </div>
-        <div class="info-col">
-          <div class="socials">
-            <div><b>Socials</b></div>
-            <div class="social-entry"><i class="bi bi-linkedin"></i>Linkedin</div>
-            <div class="social-entry"><i class="bi bi-facebook"></i>Facebook</div>
-            <p><a class="bi bi-envelope" href="mailto:fcfinvest23@gmail.com"> Email</a></p>
-          </div>
-          <div class="socials">
-            <div><b>More</b></div>
-            <div class="social-entry">Privacy</div>
-            <div class="social-entry">Cookies</div>
-          </div>
+    <div class="footer-container">
+      <div class="logo-container">
+        <img class="logo" src="../static/images/fcf_logo.png"></img>
+      </div>
+      <div class="socials">
+        <div><b>Contact</b></div>
+        <div class="contact-entry">fcfinvest23@gmail.com</div>
+        <div class="contact-entry">+32471437715</div>
+        <div class="contact-entry adress">
+          <div>Heidestraat 60</div>
+          <div>2520 Ranst</div>
+          <div>Belgium</div>
         </div>
       </div>
+      <div class="socials">
+        <div><b>Socials</b></div>
+        <div class="social-entry"><i class="bi bi-linkedin"></i>Linkedin</div>
+        <div class="social-entry"><i class="bi bi-facebook"></i>Facebook</div>
+        <a class="social-entry" href="mailto:fcfinvest23@gmail.com"><i class="bi bi-envelope"></i>Email</a>
+      </div>
+      <div class="socials">
+        <div><b>More</b></div>
+        <div class="social-entry">Privacy</div>
+        <div class="social-entry">Cookies</div>
+      </div>
     </div>
-    <div class="copy-text">Copyright © FCF invest MS. All rights reserved.</div>
+  </div>
+  <div class="copy-text"><div>BE 0804.341.420</div><div>Copyright © FCF invest MS. All rights reserved.</div></div>
   </div>
 </footer>
 
-{% endblock %}
-
-
-{% block scripts %}
+{% endblock %} {% block scripts %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
   integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="{{ url_for('static', filename='css/main.js') }}"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+  integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+{% block extra_scripts %}
+{% endblock extra_scripts %}
 {% endblock scripts %}

@@ -1,30 +1,37 @@
 {% extends "base.html" %}
 
-{% block app_content %}
-
-<!-- new_page.html -->
-<html>
-<body>
-
-    <div class="portfolio-header-background">
-        <div class="blue-filter"></div>
-        <div class="portfolio-image"></div>
-        <h1 class="portfolio-title">
-            Portfolio
-        </h1>
-    </div>
-
-
-    <!-- Your new page content goes here -->
-    <div class="portfolio-main-body-section">
-        Access to our current investments is exclusively available to members. 
-        <br>
-        <a href="../#section-4">
-            Contact
-        </a>
-    </div>
-
-</body>
-</html>
+{% block header %}
+<div class="portfolio-header-background">
+    <div class="blue-filter"></div>
+    <div class="portfolio-image"></div>
+</div>
+<div class="portfolio-header-info">
+    <h1 class="portfolio-title">
+        Portfolio
+    </h1>
+</div>
 
 {% endblock %}
+
+{% block app_content %}
+
+<div class="portfolio-main-body-section site-width">
+    <div class="portfiolio-desc">
+        Our members receive a weekly portfolio update in Excel, providing them with information on recent acquisitions
+        and
+        the performance of existing stocks. This exclusive update is specifically tailored for our members.
+    </div>
+    <br>
+    <a href="../#home/contact-us">
+        <button class="header-button-contact">
+            Contact us
+            <i class="bi bi-arrow-right-short"></i>
+        </button>
+    </a>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='css/header-appear.js') }}"></script>
+{% endblock extra_scripts %}
