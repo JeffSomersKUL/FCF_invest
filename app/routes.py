@@ -2,7 +2,6 @@ from app import app, db
 import os
 from flask import jsonify, render_template, request, redirect, url_for
 from flask import send_from_directory
-from flask_mail import Mail, Message
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField
 from wtforms.validators import DataRequired, Email
