@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- ... (existing head content) ... -->
     <style>
@@ -7,6 +8,7 @@
             display: flex;
             flex-wrap: wrap;
         }
+
         .message {
             border: 1px solid #ddd;
             padding: 10px;
@@ -14,6 +16,7 @@
             width: calc(33.33% - 20px);
             box-sizing: border-box;
         }
+
         .delete-button {
             margin-top: 10px;
             cursor: pointer;
@@ -21,17 +24,23 @@
         }
     </style>
 </head>
+
 <body>
     <h1>All Messages</h1>
     <div class="message-container">
         {% for message in messages %}
-            <div class="message">
-                <p><strong>Name:</strong> {{ message.fname }} {{ message.lname }}</p>
-                <p><strong>Email:</strong> {{ message.email }}</p>
-                <p><strong>Subject:</strong> {{ message.subject }}</p>
-                <p><strong>Content:</strong> {{ message.content }}</p>
-                <button class="delete-button" onclick="deleteMessage({{ message.id }})">Delete</button>
-            </div>
+        <div class="message">
+            <p><strong>Name:</strong> {{ message.fname }} {{ message.lname }}</p>
+            <p><strong>Email:</strong> {{ message.email }}</p>
+            <p><strong>Subject:</strong> {{ message.subject }}</p>
+            {% if message.date_created %}
+            <p><strong>Date Created:</strong> {{ message.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+            {% else %}
+            <p><strong>Date Created:</strong> Not available</p>
+            {% endif %}
+            <p><strong>Content:</strong> {{ message.content }}</p>
+            <button class="delete-button" onclick="deleteMessage({{ message.id }})">Delete</button>
+        </div>
         {% endfor %}
     </div>
 
@@ -45,4 +54,5 @@
         }
     </script>
 </body>
+
 </html>

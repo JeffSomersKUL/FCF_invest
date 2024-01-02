@@ -151,29 +151,33 @@ section {
     padding: 2rem 1rem !important;
   }
 
-  .leader-container{
+  .leader-container {
     max-width: 325px;
   }
-  
-  .about-us-desc{
+
+  .about-us-desc {
     width: 100% !important;
     font-size: 3.4vw !important;
   }
 
-  .about-leadership{
+  .about-leadership {
     text-align: start !important;
   }
 
-  .container-leadership{
+  .container-leadership {
     margin-left: 0 !important;
   }
 
-  .portfiolio-desc{
+  .portfiolio-desc {
     font-size: 3.4vw !important;
   }
 
-  .site-width{
+  .site-width {
     width: 90% !important;
+  }
+
+  .section-2{
+    background-attachment: initial !important;
   }
 
 }
@@ -1114,7 +1118,7 @@ nav .navbar-brand {
   background-size: cover;
   height: 100%;
   z-index: 3;
-  opacity: 0.2;
+  opacity: 0.5;
   border-radius: inherit;
 }
 
@@ -1236,7 +1240,7 @@ textarea {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.button-send:disabled{
+.button-send:disabled {
   box-shadow: none;
   cursor: initial;
   opacity: 0.7;
@@ -1272,7 +1276,7 @@ textarea {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-.button-send:disabled .svg-wrapper{
+.button-send:disabled .svg-wrapper {
   background-color: initial;
 }
 
@@ -1280,7 +1284,7 @@ textarea {
   transform: rotate(45deg);
 }
 
-.button-send:disabled svg{
+.button-send:disabled svg {
   transform: none;
 }
 
@@ -1305,7 +1309,8 @@ footer .site-width {
 .logo-container {
   height: auto;
   width: 40%;
-  min-width: 320px;
+  min-width: 280px;
+  max-width: 340px;
 }
 
 .logo-container svg {
@@ -1324,16 +1329,13 @@ footer .site-width {
   gap: 10px
 }
 
-.contact-entry{
+.contact-entry {
   display: flex;
   flex-direction: column;
   gap: 5px;
   text-decoration: none;
 }
 
-.contact-entry.adress{
-  margin-top:15px
-}
 
 .social-entry {
   display: flex;
@@ -1616,7 +1618,7 @@ footer .site-width {
   transition: box-shadow 0.3s ease;
   display: flex;
   background-color: #f9f9f9;
-  border-radius: 10px; 
+  border-radius: 10px;
   position: relative;
 }
 
@@ -1624,7 +1626,7 @@ footer .site-width {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-.image-leader{
+.image-leader {
   width: 30%;
   height: auto;
   border-top-left-radius: 10px;
@@ -1633,15 +1635,15 @@ footer .site-width {
   background-size: cover;
 }
 
-#Ruben{
+#Ruben {
   background-image: url(../images/ruben.jpeg);
 }
 
-#Livio{
+#Livio {
   background-image: url(../images/Livio.jpeg);
 }
 
-#Jeff{
+#Jeff {
   background-image: url(../images/Jeff.jpg);
 }
 
@@ -1653,14 +1655,14 @@ footer .site-width {
   border-bottom-left-radius: 10px;
 }
 
-.leader-description{
+.leader-description {
   display: flex;
   flex-direction: column;
   text-align: start;
   padding: 2rem;
 }
 
-.leader-description .leader-name{
+.leader-description .leader-name {
   margin-bottom: .7rem;
   font-weight: 500;
   line-height: 1.2;
@@ -1668,14 +1670,14 @@ footer .site-width {
   color: #00003a;
 }
 
-.leader-description .leader-function{
+.leader-description .leader-function {
   color: #8a8a8a;
   font-size: 1rem;
   margin-bottom: 1.3rem;
   font-family: 'Raleway', sans-serif;
 }
 
-.leader-description .leader-extras{
+.leader-description .leader-extras {
   color: #27304bb5;
   font-family: 'Raleway', sans-serif;
   font-size: 14px;
@@ -1691,7 +1693,7 @@ footer .site-width {
   padding: 6px 10px;
 }
 
-#feedback-form-container{
+#feedback-form-container {
   height: 0px;
   width: 100%;
   display: flex;
@@ -1702,10 +1704,10 @@ footer .site-width {
   padding: 1rem 0;
 }
 
-#waiting-feedback{
+#waiting-feedback {
   display: flex;
 }
 
-.footer-container b{
+.footer-container b {
   text-decoration: underline;
 }

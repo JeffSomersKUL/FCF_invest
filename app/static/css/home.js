@@ -1,4 +1,6 @@
 // ############ for the Nav bar ########################
+let offsetHeightStart = window.innerHeight*0.15
+
 let featureCards = $(".section-1 .container-fluid");
 
 let stats = $(".section-2 .container-fluid");
@@ -16,7 +18,7 @@ if ($(window).scrollTop() + window.innerHeight >= $(".section-1").offset().top )
   featureCards.addClass("left-in");
 }
 
-if ($(window).scrollTop() + window.innerHeight >= $(".section-3").offset().top + 200) {
+if ($(window).scrollTop() + window.innerHeight >= $(".section-3").offset().top + offsetHeightStart) {
   sec3Left.removeClass("hidden");
   sec3Left.addClass("left-in");
 
@@ -24,7 +26,7 @@ if ($(window).scrollTop() + window.innerHeight >= $(".section-3").offset().top +
   sec3Right.addClass("right-in");
 }
 
-if ($(window).scrollTop() + window.innerHeight >= $(".section-4").offset().top + 200) {
+if ($(window).scrollTop() + window.innerHeight >= $(".section-4").offset().top + offsetHeightStart) {
   sec4Left.removeClass("hidden");
   sec4Left.addClass("left-in");
 
@@ -33,17 +35,17 @@ if ($(window).scrollTop() + window.innerHeight >= $(".section-4").offset().top +
 }
 
 $(window).scroll(function () {
-  if ($(window).scrollTop() + window.innerHeight >= $(".section-1").offset().top + $(".section-1").height() * (4 / 5)) {
+  if ($(window).scrollTop() + window.innerHeight >= $(".section-1").offset().top + offsetHeightStart) {
     featureCards.removeClass("hidden");
     featureCards.addClass("left-in");
   }
 
-  if ($(window).scrollTop() + window.innerHeight >= $(".section-2").offset().top + $(".section-2").height() * (4 / 5)) {
+  if ($(window).scrollTop() + window.innerHeight >= $(".section-2").offset().top + offsetHeightStart) {
     stats.removeClass("hidden");
     stats.addClass("up-in");
   }
 
-  if ($(window).scrollTop() + window.innerHeight >= $(".section-3").offset().top + 200) {
+  if ($(window).scrollTop() + window.innerHeight >= $(".section-3").offset().top + offsetHeightStart) {
     sec3Left.removeClass("hidden");
     sec3Left.addClass("left-in");
 
@@ -51,7 +53,7 @@ $(window).scroll(function () {
     sec3Right.addClass("right-in");
   }
 
-  if ($(window).scrollTop() + window.innerHeight >= $(".section-4").offset().top + 200) {
+  if ($(window).scrollTop() + window.innerHeight >= $(".section-4").offset().top + offsetHeightStart) {
     sec4Left.removeClass("hidden");
     sec4Left.addClass("left-in");
 

@@ -7,6 +7,7 @@ from wtforms import StringField, TextAreaField
 from wtforms.validators import DataRequired, Email
 from app.models import ContactFormData
 from sqlalchemy.exc import SQLAlchemyError
+from datetime import datetime
 
 class ContactForm(FlaskForm):
     fname = StringField('First Name', validators=[DataRequired()])
@@ -52,9 +53,13 @@ def submit_form():
         subject = form.subject.data
         content = form.content.data
 
+        # Set the date_created to the current date and time
+        date_created = datetime.utcnow()
+        print(date_created)
+
         print(f"Form received! First Name: {fname},  Last Name: {lname}, Email: {email}, Subject: {subject}, Content: {content}")
 
-        form_data = ContactFormData(fname=fname, lname=lname, email=email, subject=subject, content=content)
+        form_data = ContactFormData(fname=fname, lname=lname, email=email, subject=subject, content=content, date_created=date_created)
 
         try:
             # Attempt to add the data to the session and commit to the database
