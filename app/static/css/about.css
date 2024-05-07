@@ -49,13 +49,3 @@
 .container-leadership a {
     text-decoration: none;
 }
-
-/* PHONE */
-@media (max-width:473px) {
-    .about-leadership .description {
-        margin-left: 0 !important;
-    }
-    .container-leadership {
-        margin-left: 0 !important;
-    }
-}
