@@ -1,0 +1,51 @@
+.header-background .about-image {
+    background-image: url(../images/buildings/corners.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    box-shadow: var(--inset-shadow-bottom);
+}
+
+.about-main-body-section {
+    border-radius: 20px;
+    text-align: center;
+    margin: 4rem auto;
+}
+
+.about-intro {
+    display: flex;
+    justify-content: center;
+}
+
+.about-intro .description {
+    width: 100%;
+}
+
+.about-values {
+    text-align: left;
+    margin: 6rem 0;
+}
+
+.about-values .description {
+    width: 75%;
+}
+
+.about-leadership {
+    text-align: right;
+    margin: 6rem 0;
+}
+
+.about-leadership .description {
+    width: 75%;
+    margin-left: auto;
+}
+
+.container-leadership {
+    width: fit-content;
+    margin-left: auto;
+}
+
+.container-leadership a {
+    text-decoration: none;
+}

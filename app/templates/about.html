@@ -1,11 +1,15 @@
 {% extends "base.html" %}
+{% block additional_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+
 {% block header %}
-<div class="about-header-background">
+<div class="header-background">
     <div class="blue-filter"></div>
     <div class="about-image"></div>
 </div>
-<div class="about-header-info">
-    <h1 class="about-title">
+<div class="header-info">
+    <h1 class="header-title center">
         About Us
     </h1>
 </div>
@@ -13,31 +17,31 @@
 {% block app_content %}
 <div class="about-main-body-section site-width">
     <div class="about-intro">
-        <div class="about-us-desc">
+        <p class="description justify">
             Embark on a journey of knowledge and prosperity with FCF invest. We are a vibrant community
             of ambitious individuals dedicated to learning and growing together. Discover a space
             where curiosity meets opportunity. Whether you're a seasoned investor or a newcomer, our fund 
             is tailored to meet your needs. Join us in becoming bigger, smarter, and more profitable together.
-        </div>
+        </p>
     </div>
     <div class="about-values">
-        <h1 class="about-us-section-header">
+        <h2 class="subtitle">
             Our purpose and values
-        </h1>
-        <div class="about-us-desc">
+        </h2>
+        <p class="description justify">
             <br>
             Our purpose is clear: to empower financial growth and stability for our investors with integrity and responsibility. 
             Our core values revolve around transparency, continuous learning, and a steadfast commitment to our investors. 
             We believe in creating long-term, sustainable value for our investors, not only in the investment world, 
             but also beyond it. Guided by these principles, we continuously strive to innovate and excel, ensuring that 
             every decision we make is aligned with the best interests of those we serve and the wider community we are a part of.
-        </div>
+        </p>
     </div>
     <div class="about-leadership">
-        <h1 class="about-us-section-header">
+        <h2 class="subtitle">
             People and Leadership
-        </h1>
-        <div class="about-us-desc">
+        </h2>
+        <p class="description justify">
             <br>
             At FCF Invest, we recognize that our members are the bedrock of our success. Each member's unique expertise and 
             dedication are pivotal in ensuring sustainable returns, and positively impacting the community. 
@@ -45,10 +49,10 @@
             but a community united in our mission to achieve exceptional results and drive meaningful change.
             <br>
             <br>
-        </div>
+        </p>
         <div class="container-leadership">
             <a href="{{ url_for('leadership')}}">
-                <button class="header-button-contact">
+                <button class="primary-button">
                     Leadership
                     <i class="bi bi-arrow-right-short"></i>
                 </button>
@@ -57,8 +61,3 @@
     </div>
 </div>
 {% endblock %}
-
-{% block extra_scripts %}
-<script src="{{ url_for('static', filename='css/header-appear.js') }}"></script>
-<script src="{{ url_for('static', filename='css/about.js') }}"></script>
-{% endblock extra_scripts %}
