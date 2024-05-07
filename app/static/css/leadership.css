@@ -1,0 +1,119 @@
+/* PHONE */
+@media (max-width:473px) {
+    .leader-container {
+      max-width: 325px;
+    }
+  
+    .about-leadership {
+      text-align: start !important;
+    }
+  }
+
+
+.header-background .about-image {
+    background-image: url(../images/buildings/corners.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    box-shadow: var(--inset-shadow-bottom);
+}
+
+.board-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.leadership-main-body-section {
+    padding: 2rem 0;
+    border-radius: 20px;
+    text-align: center;
+    margin: auto;
+}
+
+.container-pictures {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 20px;
+}
+
+.leader-container {
+    flex: 0 0 45%;
+    min-width: 325px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    position: relative;
+    height: 165px;
+}
+
+.leader-container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.image-leader {
+    width: 30%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-position: center;
+    background-size: cover;
+}
+
+#Ruben {
+    background-image: url(../images/board/Ruben.jpeg);
+}
+
+#Livio {
+    background-image: url(../images/board/Livio.jpeg);
+}
+
+#Jeff {
+    background-image: url(../images/board/Jeff.jpg);
+}
+
+.leader-container img {
+    width: 40%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.leader-description {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin: 1rem;
+}
+
+.leader-description .leader-name {
+    margin-bottom: .7rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 1.3rem;
+    color: #00003a;
+}
+
+.leader-description .leader-function {
+    color: var(--dark-text-desc-color);
+    font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
+}
+
+.leader-description .leader-extras {
+    font-size: 14px;
+    margin-top: auto
+}
+
+.linked-in-button {
+    border-radius: 25%;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    padding: 6px 10px;
+}

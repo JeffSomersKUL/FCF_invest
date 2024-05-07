@@ -2,3 +2,5 @@ dependencies:
   - python=3.9
   - flask
   - nodejs
+  - flask-wtf
+  - flask-sqlalchemy

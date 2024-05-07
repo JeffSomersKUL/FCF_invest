@@ -1,0 +1,15 @@
+{% macro leader_card(id, name, function, extras, href=None) %}
+<div class="leader-container">
+    <div class="image-leader" id="{{ id }}"></div>
+    <div class="leader-description">
+        <div class="leader-name">{{ name }}</div>
+        <div class='leader-function'>{{ function }}</div>
+        <div class="leader-extras description">{{ extras }}</div>
+    </div>
+    <a href="{{ href }}" target="_blank">
+        <button class="primary-button linked-in-button">
+            <i class="bi bi-linkedin"></i>
+        </button>
+    </a>
+</div>
+{% endmacro %}

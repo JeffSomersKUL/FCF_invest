@@ -34,7 +34,7 @@
           </div>
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1">
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link hover-underline-animation nav-button" href="{{ url_for('index')}}">Home
                 </a>
               </li>
@@ -60,10 +60,10 @@
   <div class="site-width container-fluid">
     <div class="footer-container">
       <div class="logo-container">
-        <img class="logo" src="../static/images/fcf_logo.png"></img>
+        <img class="logo" src="../static/images/logos/fcf-logo.png"></img>
       </div>
+      <div class="socials-container">
       <div class="socials">
-        <div><b>Location</b></div>
         <div class="contact-entry">
           <div>Heidestraat 60</div>
           <div>2520 Ranst</div>
@@ -71,18 +71,17 @@
         </div>
       </div>
       <div class="socials">
-        <div><b>Socials</b></div>
         <a class="social-entry" target="_blank" href="https://www.linkedin.com/company/fcfinvest/"><i class="bi bi-linkedin"></i>Linkedin</a>
         <a class="social-entry" target="_blank" href="mailto:fcfinvest23@gmail.com"><i class="bi bi-envelope"></i>Email</a>
       </div>
       <div class="socials">
-        <div><b>More</b></div>
         <div class="social-entry">Privacy</div>
         <div class="social-entry">Cookies</div>
+      </div>        
       </div>
     </div>
   </div>
-  <div class="copy-text"><div>BE 0804.341.420</div><div>Copyright © FCF invest MS. All rights reserved.</div></div>
+  <div class="copy-right-text"><div>BE 0804.341.420</div><div>Copyright © FCF invest MS. All rights reserved.</div></div>
   </div>
 </footer>
 
@@ -92,6 +91,7 @@
   integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
   integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/helpers/header-appear.js') }}"></script>
 {% block extra_scripts %}
 {% endblock extra_scripts %}
 {% endblock scripts %}

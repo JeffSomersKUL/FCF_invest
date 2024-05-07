@@ -1,0 +1,14 @@
+.header-background .portfolio-image {
+    background-image: url(../images/buildings/abstract.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    box-shadow: var(--inset-shadow-bottom);
+}
+
+.portfolio-main-body-section {
+    text-align: center;
+    margin: 4rem auto;
+    min-height: 300px;
+}

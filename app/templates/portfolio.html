@@ -1,30 +1,33 @@
 {% extends "base.html" %}
 
+{% block additional_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio.css') }}">
+{% endblock %}
+
 {% block header %}
-<div class="portfolio-header-background">
+<div class="header-background">
     <div class="blue-filter"></div>
     <div class="portfolio-image"></div>
 </div>
-<div class="portfolio-header-info">
-    <h1 class="portfolio-title">
+<div class="header-info">
+    <h1 class="header-title center">
         Portfolio
     </h1>
 </div>
-
 {% endblock %}
 
 {% block app_content %}
 
 <div class="portfolio-main-body-section site-width">
-    <div class="portfiolio-desc">
+    <p class="description justify">
         Explore our weekly portfolio updates, where we transparently present our current holdings, profit
         figures for each position, and in-depth analysis of performance. Gain valuable insights with
         comparisons to most popular benchmarks, ensuring you stay informed and confident in our investment journey. 
         Our current holdings are exclusively available to our members, get in touch.
-    </div>
+    </p>
     <br>
     <a href="../#home/contact-us">
-        <button class="header-button-contact">
+        <button class="primary-button">
             Contact us
             <i class="bi bi-arrow-right-short"></i>
         </button>
@@ -32,7 +35,3 @@
 </div>
 
 {% endblock %}
-
-{% block extra_scripts %}
-<script src="{{ url_for('static', filename='css/header-appear.js') }}"></script>
-{% endblock extra_scripts %}
