@@ -1,11 +1,17 @@
 {% extends "base.html" %}
+{% from "leader-card.html" import leader_card %}
+
+{% block additional_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/leadership.css') }}">
+{% endblock %}
+
 {% block header %}
-<div class="about-header-background">
+<div class="header-background">
     <div class="blue-filter"></div>
     <div class="about-image"></div>
 </div>
-<div class="leadership-header-info">
-    <h1 class="leadership-title">
+<div class="header-info">
+    <h1 class="header-title center">
         Leadership
     </h1>
 </div>
@@ -14,53 +20,13 @@
 {% block app_content %}
 
 <div class="leadership-main-body-section site-width">
-    <h1 class="board-title">
+    <h2 class="board-title subtitle">
         Board of Directors
-    </h1>
-
+    </h2>
     <div class="container-pictures">
-        <div class="leader-container">
-            <div class="image-leader" id="Ruben"></div>
-            <div class="leader-description">
-                <div class="leader-name">Ruben Stabel</div>
-                <div class='leader-function'>President</div>
-                <div class="leader-extras">Engineer and Finance</div>
-            </div>
-            <a href="https://www.linkedin.com/in/ruben-stabel-42111529b/" target="_blank">
-                <button class="header-button-contact linked-in-button">
-                    <i class="bi bi-linkedin"></i>
-                </button>
-            </a>
-        </div>
-
-        <div class="leader-container">
-            <div class="image-leader" id="Livio"></div>
-            <div class="leader-description">
-                <div class="leader-name">Livio Luyten</div>
-                <div class='leader-function'>Vice-President</div>
-                <div class="leader-extras">Engineer and Finance</div>
-            </div>
-            <a href="https://www.linkedin.com/in/livio-luyten-1341b2212/" target="_blank">
-                <button class="header-button-contact linked-in-button">
-                    <i class="bi bi-linkedin"></i>
-                </button>
-            </a>
-        </div>
-
-        <div class="leader-container">
-            <div class="image-leader" id="Jeff"></div>
-            <div class="leader-description">
-                <div class="leader-name">Jeff Somers</div>
-                <div class='leader-function'>Treasurer</div>
-                <div class="leader-extras">Engineer and Tech</div>
-            </div>
-            <a href="https://www.linkedin.com/in/jeff-somers-b9667a225/" target="_blank">
-                <button class="header-button-contact linked-in-button">
-                    <i class="bi bi-linkedin"></i>
-                </button>
-            </a>
-        </div>
-
+        {{ leader_card("Ruben", "Ruben Stabel", "President", "Engineer and Finance", href="https://www.linkedin.com/in/ruben-stabel-42111529b/") }}
+        {{ leader_card("Livio", "Livio Luyten", "Vice-President", "Engineer and Finance", href="https://www.linkedin.com/in/livio-luyten-1341b2212/") }}
+        {{ leader_card("Jeff", "Jeff Somers", "Treasurer", "Engineer and Tech", href="https://www.linkedin.com/in/jeff-somers-b9667a225/") }}
     </div>
 
 </div>

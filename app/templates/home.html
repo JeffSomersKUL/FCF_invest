@@ -1,32 +1,36 @@
 {% extends "base.html" %} 
+{% from "contact-us-form.html" import contact_card %}
 {% block additional_css %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
-{% endblock %}
-
-
-{% block header %}
-<div class="nav-header-background">
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/home.css') }}" />
+{% endblock %} {% block header %}
+<div class="header-background">
   <div class="blue-filter"></div>
   <div class="city-image"></div>
 </div>
 <div class="nav-header-info">
-  <div class="container-fluid header-info">
+  <div class="container-fluid header-info-responsive">
     <div class="col-header site-width text-white">
       <h1>Building wealth, friendship and futures together</h1>
       <p class="d-none d-sm-block">
-        Our young investment fund, based in Antwerp, is focused on collective wealth growth by exploiting diverse
-        profiles with a passion for finance. Founded in 2021 by a group of friends, the fund provides a supportive
-        environment for its investors to network, learn and explore investment opportunities.
+        Our young investment fund, based in Antwerp, is focused on collective
+        wealth growth by exploiting diverse profiles with a passion for finance.
+        Founded in 2021 by a group of friends, the fund provides a supportive
+        environment for its investors to network, learn and explore investment
+        opportunities.
       </p>
-      <p class="d-block d-sm-none">An investment fund with young minds, learning and growing together.</p>
+      <p class="d-block d-sm-none">
+        An investment fund with young minds, learning and growing together.
+      </p>
       <div class="buttons-container">
         <a href="#home/contact-us">
-          <button class="header-button-contact">Contact us</button>
+          <button class="primary-button">Contact us</button>
         </a>
         <a href="{{ url_for('about')}}">
-          <button class="header-button-learn">
+          <button class="text-button">
             Learn more
-            <i class="bi bi-arrow-right-short"></i>
+            <i class="bi bi-chevron-right"></i>
           </button>
         </a>
       </div>
@@ -41,48 +45,38 @@
     <div class="container-fluid site-width hidden">
       <div class="feature-card">
         <div class="feature-card-content">
-          <img src="../static/images/logos/learning-blue.png" class="feature-icon" />
+          <img
+            src="../static/images/logos/learning-blue.png"
+            class="feature-icon" />
           <div class="feature-title">Learning</div>
-          <div class="feature-description">
-            We're committed to providing our members with an exceptional learning experience.
-            <div class="feature-description-extra">
-              <br />
-              Through presentations and discussions members can expand their knowledge of macroeconomics, fundamental
-              and technical analyses, and gain insight into a variety of industries. We firmly believe that ongoing
-              education and learning are essential for successful investing.
-            </div>
-          </div>
+          <p class="description">
+            We're committed to providing our members with an exceptional
+            learning experience.
+          </p>
         </div>
       </div>
       <div class="feature-card">
         <div class="feature-card-content">
-          <img src="../static/images/logos/networking-blue.png" class="feature-icon" />
+          <img
+            src="../static/images/logos/networking-blue.png"
+            class="feature-icon" />
           <div class="feature-title">Networking</div>
-          <div class="feature-description">
-            Experiencee an environment where you can connect with exceptional bright and intellectual minds.
-            <div class="feature-description-extra">
-              <br />
-              Our members comprises with diverse backgrounds in engineering, medicine, and various sectors such as
-              consulting, finance, pharma and AI. This diversity in expertise provides a wide range of perspectives
-              necessary for financial market analysis.
-            </div>
-          </div>
+          <p class="description">
+            Experience an environment where you can connect with exceptional
+            bright and intellectual minds.
+          </p>
         </div>
       </div>
       <div class="feature-card">
         <div class="feature-card-content">
-          <img src="../static/images/logos/profit-hand-blue.png" class="feature-icon" />
+          <img
+            src="../static/images/logos/profit-hand-blue.png"
+            class="feature-icon" />
           <div class="feature-title">Profit</div>
-          <div class="feature-description">
-            By stayin vigilant to emerging trends we strive to construct a portfolio that consistently outperformst the
-            market.
-            <div class="feature-description-extra">
-              <br />
-              We utilize the collective knowledge of our members to build a strong portfolio that surpasses market
-              performance. We aim to attract investors and build a fund that generates profits through strategic
-              investments in financial instruments.
-            </div>
-          </div>
+          <p class="description">
+            By staying vigilant to emerging trends we strive to construct a
+            portfolio that consistently outperformst the market.
+          </p>
         </div>
       </div>
     </div>
@@ -115,18 +109,25 @@
     <div class="container-fluid site-width">
       <div class="row">
         <div class="col-lg-6 col-12 how-to-work-col hidden">
-          <div class="title-how-to-work">How do we work?</div>
-          <div class="description-how-to-work">
-            To ensure seamless operations within our investment fund, we have implemented a series of measures. Firstly,
-            we distinguish our <span id="members" class="highlight-text">members</span> based on their level of
-            commitment and willingness to participate in discussions. Accordingly, we provide tailored types of
-            <span id="presentations" class="highlight-text">meetings</span>. In addition to the meetings, we
-            utilize various
-            <span id="communication" class="highlight-text">communication</span> platforms. Lastly, we provide
-            weekly updates to our <span id="porftolio" class="highlight-text">portfolio</span> to keep our members
-            informed and enable them to track their investment progress.
-          </div>
-          <img src="../static/images/working.svg" alt="Illustration description" class="d-none d-lg-block" />
+          <h2 class="title-subsection">How do we work?</h2>
+          <p class="description justify">
+            To ensure seamless operations within our investment fund, we have
+            implemented a series of measures. Firstly, we distinguish our
+            <span id="members" class="highlight-text">members</span> based on
+            their level of commitment and willingness to participate in
+            discussions. Accordingly, we provide tailored types of
+            <span id="presentations" class="highlight-text">meetings</span>. In
+            addition to the meetings, we utilize various
+            <span id="communication" class="highlight-text">communication</span>
+            platforms. Lastly, we provide weekly updates to our
+            <span id="porftolio" class="highlight-text">portfolio</span> to keep
+            our members informed and enable them to track their investment
+            progress.
+          </p>
+          <img
+            src="../static/images/working.svg"
+            alt="Illustration description"
+            class="d-none d-lg-block" />
         </div>
         <div class="col-lg-6 col-12 items-col hidden">
           <div class="information-item" id="members">
@@ -134,28 +135,33 @@
               Members
               <i class="bi bi-chevron-right"></i>
             </div>
-            <div class="information-content" id="content-members">
+            <div class="information-content description" id="content-members">
               <div class="information-container">
-                <div class="text-information">
+                <p class="text-information">
                   We categorize our fund into two distinct types of members,
                   <strong>passive</strong>
                   and
                   <strong>active</strong>.
-                </div>
-                <div class="text-information">
-                  <strong>Passive members</strong> are not obligated to participate in the partnership and have the
-                  flexibility to learn at their own pace. However, this designation also results in a relatively reduced
-                  influence on the investing strategy.
-                </div>
-                <div class="text-information">
-                  <strong>Active members</strong> are highly engaged in the markets and engage in
-                  daily discussions on positions and market developments. As an active member, you are expected to vote
-                  on new positions, which requires a level of commitment and contribution.
-                </div>
-                <div class="text-information">
-                  It is important to note that members have the flexibility to switch between these roles based on their
-                  interests and preferences, if the requirements are met.
-                </div>
+                </p>
+                <p class="text-information">
+                  <strong>Passive members</strong> are not obligated to
+                  participate in the partnership and have the flexibility to
+                  learn at their own pace. However, this designation also
+                  results in a relatively reduced influence on the investing
+                  strategy.
+                </p>
+                <p class="text-information">
+                  <strong>Active members</strong> are highly engaged in the
+                  markets and engage in daily discussions on positions and
+                  market developments. As an active member, you are expected to
+                  vote on new positions, which requires a level of commitment
+                  and contribution.
+                </p>
+                <p class="text-information">
+                  It is important to note that members have the flexibility to
+                  switch between these roles based on their interests and
+                  preferences, if the requirements are met.
+                </p>
               </div>
             </div>
           </div>
@@ -164,20 +170,27 @@
               Meetings
               <i class="bi bi-chevron-right"></i>
             </div>
-            <div class="information-content" id="content-presentations">
+            <div
+              class="information-content description"
+              id="content-presentations">
               <div class="information-container">
-                <div class="text-information">Like our members, we divide our meetings into two types.</div>
-                <div class="text-information">
-                  <strong>Investor meetings</strong> are led by the board or active members and prioritize learning.
-                  They offer interactive sessions, covering macroeconomic developments and in-depth presentations on
-                  relevant topics. These sessions also include a review of the fund's portfolio, allowing members to
-                  gain valuable insights. 
-                </div>
-                <div class="text-information">
-                  <strong>Active meetings</strong> offer a more relaxed and less structured setting. Market movements 
-                  and new investment opportunities are discussed, providing a platform for members to share their ideas 
-                  and receive feedback.
-                </div>
+                <p class="text-information">
+                  Like our members, we divide our meetings into two types.
+                </p>
+                <p class="text-information">
+                  <strong>Investor meetings</strong> are led by the board or
+                  active members and prioritize learning. They offer interactive
+                  sessions, covering macroeconomic developments and in-depth
+                  presentations on relevant topics. These sessions also include
+                  a review of the fund's portfolio, allowing members to gain
+                  valuable insights.
+                </p>
+                <p class="text-information">
+                  <strong>Active meetings</strong> offer a more relaxed and less
+                  structured setting. Market movements and new investment
+                  opportunities are discussed, providing a platform for members
+                  to share their ideas and receive feedback.
+                </p>
               </div>
             </div>
           </div>
@@ -186,48 +199,23 @@
               Communication
               <i class="bi bi-chevron-right"></i>
             </div>
-            <div class="information-content" id="content-comm">
+            <div class="information-content description">
               <div class="information-container">
-                <div class="info-blocks">
-                  <div class="info-block" id="discord-comm">
-                    <i class="bi bi-discord"></i>
-                    <h4>Discord</h4>
-                    <ul>
-                      <li>Primary communication</li>
-                      <li>Daily updates</li>
-                      <ul>
-                        <li>Macroeconomics</li>
-                        <li>Learning resources</li>
-                      </ul>
-                      <li>Weekly updates</li>
-                      <ul>
-                        <li>Porftolio</li>
-                      </ul>
-                    </ul>
-                  </div>
-                  <div class="info-block" id="drive-comm">
-                    <i class="bi bi-google"></i>
-                    <h4>Drive</h4>
-                    <ul>
-                      <li>Online storage space</li>
-                      <ul>
-                        <li>Excel portfolios</li>
-                        <li>Presentations</li>
-                      </ul>
-                    </ul>
-                  </div>
-                  <div class="info-block" id="messenger-comm">
-                    <i class="bi bi-whatsapp"></i>
-                    <h4>Whatsapp</h4>
-                    <ul>
-                      <li>Important messages</li>
-                      <ul>
-                        <li>Agenda of upcoming presentations</li>
-                        <li>Evenements</li>
-                      </ul>
-                    </ul>
-                  </div>
-                </div>
+                <p class="text-information">
+                  <strong>Discord <i class="bi bi-discord"></i></strong> is our
+                  primary communication tool, it serves as the hub for daily
+                  updates and interactions. Members can expect daily briefings
+                  on macroeconomics, technical analyses, trades, portfolio
+                  updates and learning resources, along with participation in
+                  our online meetings.
+                </p>
+                <p class="text-information">
+                  <strong>WhatsApp <i class="bi bi-whatsapp"></i></strong>
+                  complements our communication strategy by alerting members to
+                  upcoming presentations and events. This platform ensures
+                  timely notifications so everyone can seamlessly participate in
+                  all our club activities.
+                </p>
               </div>
             </div>
           </div>
@@ -236,13 +224,15 @@
               Portfolio
               <i class="bi bi-chevron-right"></i>
             </div>
-            <div class="information-content" id="content-portfolio">
+            <div class="information-content description" id="content-portfolio">
               <div class="information-container">
-                <div class="text-information">
-                  Explore our weekly portfolio updates, where we transparently present our current holdings, profit
-                  figures for each position, and in-depth analysis of performance. Gain valuable insights with
-                  comparisons to most popular benchmarks, ensuring you stay informed and confident in our investment journey.
-                </div>
+                <p class="text-information">
+                  Explore our weekly portfolio updates, where we transparently
+                  present our current holdings, profit figures for each
+                  position, and in-depth analysis of performance. Gain valuable
+                  insights with comparisons to most popular benchmarks, ensuring
+                  you stay informed and confident in our investment journey.
+                </p>
               </div>
             </div>
           </div>
@@ -255,126 +245,32 @@
       <div class="row">
         <div class="col-lg-5 col-12 form-col hidden">
           <div class="contact-us-card">
-            <form class="mb-0" id="contact-form">
-              <div class="personal-information-section">
-                <div class="row-name">
-                  <div class="col-name">
-                    <div class="form-group">
-                      <input type="text" id="firstname" name="fname" class="form-underline" placeholder="First Name">
-                    </div>
-                  </div>
-                  <div class="col-name">
-                    <div class="form-group">
-                      <input type="text" id="lastname" name="lname" class="form-underline" placeholder="Last Name">
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <input type="email" id="email" name="email" class="form-underline" aria-describedby="emailHelp"
-                    placeholder="Email">
-                </div>
-              </div>
-              <div class="email-section">
-                <div>
-                  <div class="form-group">
-                    <input type="text" id="subject" name="subject" class="form-underline" placeholder="Subject">
-                  </div>
-                </div>
-                <div>
-                  <div class="form-group">
-                    <textarea type="text" id="content" name="content" class="form-underline" rows="5"
-                      placeholder="Email Content"></textarea>
-                  </div>
-                </div>
-              </div>
-              <div class="send-section">
-                <button class="button-send" type="submit" id="form-submit">
-                  <div class="svg-wrapper-1">
-                    <div class="svg-wrapper">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z"></path>
-                        <path fill="currentColor"
-                          d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
-                        </path>
-                      </svg>
-                    </div>
-                  </div>
-                  <span>Send</span>
-                </button>
-              </div>
-              {{ form.hidden_tag() }}
-              <div id="feedback-form-container"></div>
-            </form>
+            {{ contact_card(form) }}
           </div>
         </div>
         <div class="col-lg-7 col-12 hidden contact-us-col">
-          <div class="title-how-to-work">Contact us</div>
-          <div class="description-how-to-work">
-            To join our investment fund, get more information, or explore collaborating with us, please reach out to us
-            using the provided form. We look forward to hearing from you in the future.
+          <h2 class="title-subsection">Contact us</h2>
+          <div class="description">
+            To join our investment fund, get more information, or explore
+            collaborating with us, please reach out to us using the provided
+            form. We look forward to hearing from you in the future.
           </div>
           <div class="team-picture-container d-none d-lg-block">
-            <div class="picture-team">
-            </div>
+            <div class="picture-team"></div>
           </div>
         </div>
       </div>
     </div>
-    <div class="background-grid"></div>
+    <div class="bottom-container">
+      <div class="position-relative h-100">
+        <div class="mask"></div>
+        <div class="background-grid"></div>
+      </div>
+    </div>
   </section>
 </main>
-{% endblock %}
-
-{% block extra_scripts %}
+{% endblock %} {% block extra_scripts %}
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-  // JavaScript to handle form submission
-  $(document).ready(function () {
-    document.getElementById('contact-form').addEventListener('submit', function (event) {
-      event.preventDefault(); // Prevent the default form submission
-      // display waiting circle
-      var feedbackDiv = document.getElementById('feedback-form-container');
-      feedbackDiv.innerHTML = '<div id="waiting-feedback"><div class="spinner-border" role="status"></div></div>';
-      feedbackDiv.style.height = feedbackDiv.scrollHeight + 'px';
-      // disbale button
-      var myButton = document.getElementById('form-submit');
-      myButton.disabled = true;
-
-      $.ajax({
-        type: 'POST',
-        url: '/submit_form',  // Flask route for form submission
-        data: $('#contact-form').serialize(),  // Serialize form data
-        success: function (response) {
-          // Handle the response as needed
-          console.log(response);
-          if (response.response == "success") {
-            // show successfull 
-            const successDiv = '<div class="alert alert-success" id="success-feedback" role="alert">We successfully received your message!</div>'
-            feedbackDiv.innerHTML = successDiv
-            feedbackDiv.style.height = feedbackDiv.scrollHeight + 'px';
-          }else if(response.response == "failed"){
-            const backendFailedDiv = '<div class="alert alert-warning" role="alert">Something went wrong on our side when saving your form, please try again later.</div>'
-            feedbackDiv.innerHTML = backendFailedDiv
-            feedbackDiv.style.height = feedbackDiv.scrollHeight + 'px';
-          }
-          else{
-            const notFilledDiv = '<div class="alert alert-danger" role="alert">Not all fields are filled in.</div>'
-            feedbackDiv.innerHTML = notFilledDiv
-            feedbackDiv.style.height = feedbackDiv.scrollHeight + 'px';
-            myButton.disabled = false;
-          }
-          // response if somthing not filled + enable button again
-        },
-        error: function (error) {
-          // response if something went wrong please retry or contact later
-          const warningDiv = '<div class="alert alert-warning" role="alert">Something went wrong on our side, please try again later.</div>'
-          feedbackDiv.innerHTML = warningDiv
-          feedbackDiv.style.height = feedbackDiv.scrollHeight + 'px';
-        }
-      });
-    })
-  });
-</script>
-<script src="{{ url_for('static', filename='css/header-appear.js') }}"></script>
-<script src="{{ url_for('static', filename='css/home.js') }}"></script>
+<script src="{{ url_for('static', filename='js/helpers/contact-form.js') }}"></script>
+<script src="{{ url_for('static', filename='js/helpers/home.js') }}"></script>
 {% endblock extra_scripts %}

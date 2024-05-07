@@ -5,6 +5,7 @@ from flask import send_from_directory
 from .models import ContactFormData
 from .forms import ContactForm
 from sqlalchemy.exc import SQLAlchemyError
+import requests
 
 
 @app.route("/favicon.ico")
@@ -81,3 +82,32 @@ def delete_message(message_id):
         db.session.delete(message)
         db.session.commit()
     return redirect(url_for("view_messages"))
+
+# Your Interactive Brokers account credentials
+USERNAME = "mibell260"
+PASSWORD = "MJB23199"
+
+auth_response = requests.post("https://api.ibkr.com/v1/api/portfolio/accounts", json={"userName": USERNAME, "password": PASSWORD})
+# Authenticate and get a session token
+auth_response = requests.post("https://api.ibkr.com/v1/user/authenticate", json={"userName": USERNAME, "password": PASSWORD})
+auth_response.raise_for_status()
+session_token = auth_response.json()["session"]
+
+# Fetch account summary
+headers = {"Authorization": f"Bearer {session_token}"}
+account_response = requests.get("https://api.ibkr.com/v1/accounts", headers=headers)
+account_response.raise_for_status()
+account_data = account_response.json()
+
+# Print account summary
+for account in account_data:
+    print("Account ID:", account["accountId"])
+    print("Account Name:", account["accountName"])
+    print("Net Liquidation Value:", account["netLiquidation"])
+    print("Available Funds:", account["availableFunds"])
+    print("====================================")
+
+# Logout
+logout_response = requests.post("https://api.ibkr.com/v1/user/logout", headers=headers)
+logout_response.raise_for_status()
+print("Logged out successfully.")
