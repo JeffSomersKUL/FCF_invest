@@ -17,10 +17,10 @@ body {
   --primary-font-header: 'Playfair Display', serif;
   --secondary-font-header: 'Open Sans', sans-serif;
   --section-gap: 7rem;
-  --height-navbar: 4rem;
+  --height-navbar: 64px;
   --height-header: 30vh;
   --primary-color: #124882;
-  --linear-primary-color: linear-gradient(to bottom, #0e518a 0%, var(--primary-color) 100%);
+  --linear-primary-color: linear-gradient(to bottom, #145aa1 0%, var(--primary-color) 100%);
   --secondary-color: #5cb3ff14;
   --dark-text-desc-color: #27304bb5;
   --dark-text-title-color: #2e2c2caf;
@@ -55,7 +55,6 @@ body {
   .site-width {
     width: 90% !important;
   }
-
 }
 
 /********* General Text *********/
@@ -146,6 +145,7 @@ body {
   align-self: center;
   border: none;
   letter-spacing: -0.1px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0 8px 15px;
 }
 
 .primary-button:hover {
@@ -158,6 +158,10 @@ body {
   transform: translateY(0);
 }
 
+.primary-button.full-width{
+  width: 100%;
+}
+
 /********* General Divs *********/
 .header-info {
   height: var(--height-header);
@@ -165,6 +169,7 @@ body {
 
 .site-width {
   width: 76%;
+  max-width: 1400px;
 }
 
 .header-info-responsive {
@@ -190,6 +195,23 @@ body {
   bottom: 0;
   background: var(--blue-filter)
 }
+
+.form-underline {
+  border: none;
+  border-bottom: 1px solid #d4d4d4;
+  padding: 10px;
+  width: 100%;
+  background: transparent;
+  transition: all .25s ease;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'sans-serif';
+}
+
+.form-underline:focus {
+  outline: none;
+  border-bottom: 1.2px solid var(--primary-color);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'sans-serif';
+}
+
 
 /********* incoming animation *********/
 
@@ -348,6 +370,8 @@ nav .nav-item {
 nav .nav-link {
   color: whitesmoke !important;
   padding: 0;
+  display: flex;
+  gap: 5px
 }
 
 .btn-close {

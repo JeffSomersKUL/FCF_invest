@@ -519,24 +519,6 @@
     flex: 1 0 100px;
 }
 
-.form-underline {
-    border: none;
-    border-bottom: 1px solid #d4d4d4;
-    padding: 10px;
-    width: 100%;
-    background: transparent;
-    transition: all .25s ease;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'sans-serif';
-}
-
-.form-underline:focus {
-    outline: none;
-    border-bottom: 1.2px solid var(--primary-color);
-    ;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'sans-serif';
-}
-
-
 textarea {
     resize: none;
 }

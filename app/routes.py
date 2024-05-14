@@ -81,3 +81,8 @@ def delete_message(message_id):
         db.session.delete(message)
         db.session.commit()
     return redirect(url_for("view_messages"))
+
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
