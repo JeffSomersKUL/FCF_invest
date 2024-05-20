@@ -1,0 +1,33 @@
+/* PHONE */
+@media (max-width:473px) {
+    .profile-main-body-section{
+        padding: 1rem !important;
+    }
+}
+
+.navbar {
+    background: var(--primary-color);
+    position: absolute !important;
+    top: 0 !important;
+}
+
+.navbar.sticky {
+    background: var(--primary-color);
+    position: absolute !important;
+    top: 0 !important;
+}
+
+
+.profile-main-body-section {
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - var(--height-navbar));
+    margin: auto
+}
+
+#profile-container{
+    width: 100%;
+    max-width: 800px;
+}

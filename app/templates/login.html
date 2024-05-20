@@ -5,40 +5,17 @@
 {% endblock %} {% block app_content %}
 
 <div class="portfolio-main-body-section site-width">
-  <div class="login-container">
-    <div class="login-header">
-      <img
-        class="login-img"
-        src="../static/images/login/transparant-profile.png" />
-      <div>Login</div>
-    </div>
-    <form method="post">
-      <div class="form-group">
-        <input
-          type="email"
-          id="email"
-          name="email"
-          class="form-underline"
-          aria-describedby="emailHelp"
-          placeholder="email" />
-      </div>
-      <div class="form-group">
-        <input
-          type="password"
-          id="password"
-          name="password"
-          class="form-underline"
-          placeholder="password" />
-      </div>
-      <div class="form-group remember-me">
-        <input type="checkbox" id="remember-me" name="remember-me" />
-        <label for="remember-me">Remember me</label>
-      </div>
-      <div class="form-group submit-container">
-        <button type="submit" class="primary-button full-width">Login</button>
-      </div>
-    </form>
-  </div>
+  <div id="login-form"></div>
 </div>
 
-{% endblock %}
+{% endblock %} {% block extra_scripts %}
+<script
+  type="text/babel"
+  src="{{ url_for('static', filename='js/components/login-form.jsx') }}"></script>
+<script type="text/babel">
+  const rootElement = document.getElementById("login-form");
+  const root = ReactDOM.createRoot(rootElement);
+  const token ="{{token}}"
+  root.render(<LoginForm.LoginForm token={token}/>);
+</script>
+{% endblock extra_scripts %}

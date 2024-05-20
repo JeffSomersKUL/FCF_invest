@@ -1,3 +1,11 @@
+/* PHONE */
+@media (max-width:473px) {
+    .portfolio-main-body-section{
+        padding: 1rem !important;
+    }
+}
+
+
 .navbar {
     background: var(--primary-color);
     position: absolute !important;
@@ -16,7 +24,7 @@
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - var(--height-navbar));
-    margin:auto
+    margin: auto
 }
 
 .login-container {
@@ -30,23 +38,48 @@
     box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
 }
 
-form{
+.form-input-container {
+    height: fit-content;
+    transition: height 200ms ease-in-out;
+    overflow-y: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+
+.form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.form-group{
+.row-name {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
     max-width: 300px;
     width: 100%;
 }
 
-.login-img{
+.col-name {
+    flex: 1 0 100px;
+}
+
+.form-group {
+    max-width: 300px;
+    width: 100%;
+    position: relative;
+}
+
+.login-img {
     width: 35%;
     opacity: 0.9;
 }
 
-.login-header{
+.login-header {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -55,25 +88,69 @@ form{
     margin-bottom: 1.5rem;
 }
 
-#remember-me{
+.login-header {
+    font-size: 18px;
+    font-weight: 700;
+    color: #29598e;
+}
+
+#remember-me {
     height: 10px;
 }
 
-.form-group.remember-me{
+.form-group.remember-me {
     margin-top: 10px;
     display: flex;
     align-items: center;
     gap: 3px;
 }
 
-.form-group label{
+.form-group label {
     color: #848484;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'sans-serif';
     font-size: 14px;
 }
 
-.submit-container{
+.submit-container {
     width: 80%;
     margin: auto;
     margin-top: 1.5rem;
+}
+
+#email-for-sign-up {
+    margin-bottom: 1rem;
+}
+
+.account-info-text {
+    color: #848484;
+    margin-top: 15px;
+    font-size: 13px;
+    font-weight: 350;
+    text-align: center;
+}
+
+.account-info-text b {
+    color: var(--primary-color);
+    font-weight: 400;
+}
+
+.account-info-text b:hover {
+    cursor: pointer;
+}
+
+.error-container {
+    transition: height 200ms ease-in-out;
+    text-align: center;
+    color: #ae3a3a;
+    font-size: 13px;
+}
+
+.icon-feedback-form {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: green;
 }

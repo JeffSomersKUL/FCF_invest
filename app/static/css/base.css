@@ -206,6 +206,10 @@ body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'sans-serif';
 }
 
+.form-underline.valid{
+  border-bottom: 1px solid green;
+}
+
 .form-underline:focus {
   outline: none;
   border-bottom: 1.2px solid var(--primary-color);
