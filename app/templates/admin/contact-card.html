@@ -1,0 +1,22 @@
+{% macro contact_message(message) %}
+<div class="message card mb-3">
+  <div class="card-body message-card">
+    <p><strong>Name:</strong> {{ message.fname }} {{ message.lname }}</p>
+    <p><strong>Email:</strong> {{ message.email }}</p>
+    <p><strong>Subject:</strong> {{ message.subject }}</p>
+    {% if message.date_created %}
+    <p>
+      <strong>Date Created:</strong> {{ message.date_created.strftime('%Y-%m-%d
+      %H:%M:%S') }}
+    </p>
+    {% else %}
+    <p><strong>Date Created:</strong> Not available</p>
+    {% endif %}
+    <p><strong>Content:</strong></p>
+    <pre class="message-content">{{ message.content }}</pre>
+    <button class="delete-button" onclick="deleteMessage({{ message.id }})">
+      Delete
+    </button>
+  </div>
+</div>
+{% endmacro %}

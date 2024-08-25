@@ -641,9 +641,24 @@ textarea {
     transition: height 0.25s ease-out;
     flex-direction: column;
     align-items: center;
-    padding: 0.5rem 0;
 }
 
 #waiting-feedback {
     display: flex;
+}
+
+#feedback-form-container .success{
+    color: #155724;
+}
+
+#feedback-form-container .warning{
+    color: #856404;
+}
+
+#feedback-form-container .danger{
+    color:#721c24;
+}
+
+#feedback-form-container .fb{
+    margin-top: 1rem;
 }

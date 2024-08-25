@@ -1,6 +1,6 @@
 /* PHONE */
 @media (max-width:473px) {
-    .portfolio-main-body-section{
+    .portfolio-main-body-section {
         padding: 1rem !important;
     }
 }
@@ -123,19 +123,22 @@
 
 .account-info-text {
     color: #848484;
-    margin-top: 15px;
     font-size: 13px;
     font-weight: 350;
     text-align: center;
 }
 
-.account-info-text b {
+.account-info-text button {
     color: var(--primary-color);
     font-weight: 400;
+    background-color: transparent;
+    border: none;
+    transition: color 200ms ease-in-out;
 }
 
-.account-info-text b:hover {
-    cursor: pointer;
+.account-info-text button:disabled {
+    color: var(--primary-color);
+    opacity: 0.6;
 }
 
 .error-container {
@@ -153,4 +156,11 @@
     display: flex;
     align-items: center;
     color: green;
+}
+
+.form-auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80%;
 }

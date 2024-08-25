@@ -3,21 +3,12 @@ from flask import (
     request,
     redirect,
     url_for,
-    send_from_directory,
 )
 from . import main
 from app import db
 from app.models import ContactFormData
 from app.forms import ContactForm
 from sqlalchemy.exc import SQLAlchemyError
-import os
-
-
-@main.route("/favicon.ico")
-def favicon():
-    return send_from_directory(
-        os.path.join(main.root_path, "static"), "favicon.ico"
-    )
 
 
 @main.route("/")
@@ -71,19 +62,3 @@ def submit_form():
             return {"response": "failed"}
     else:
         return {"response": list(form.errors.keys())}
-
-
-@main.route("/cc7fccf50f9946b1e93dcc29946b13ef")
-def view_messages():
-    messages = ContactFormData.query.all()
-
-    return render_template("messages.html", messages=messages)
-
-
-@main.route("/delete_message/<int:message_id>")
-def delete_message(message_id):
-    message = ContactFormData.query.get(message_id)
-    if message:
-        db.session.delete(message)
-        db.session.commit()
-    return redirect(url_for("main.view_messages"))

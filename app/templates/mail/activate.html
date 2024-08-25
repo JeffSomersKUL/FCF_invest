@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Confirm Your Email</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        color: #333333;
+      }
+      .container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #333333;
+        font-size: 24px;
+      }
+      p {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #555555;
+      }
+      .confirmation-code {
+        font-size: 20px;
+        font-weight: bold;
+        color: #007bff;
+      }
+      .footer {
+        font-size: 12px;
+        color: #999999;
+        margin-top: 20px;
+      }
+      .logo {
+        width: 150px;
+        margin-bottom: 20px;
+      }
+
+      img{
+        width: 250px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <img src="cid:logo" alt="Your Company Logo"/>
+      </div>
+      <h1>Confirm Your Email Address</h1>
+      <p>Hi there,</p>
+      <p>
+        Thank you for signing up! To complete the process, please confirm your email
+        address by using the following confirmation code:
+      </p>
+      <p class="confirmation-code">{{ confirmation_code }}</p>
+      <p>
+        Simply enter this code on our website to verify your email and get started.
+      </p>
+      <p>
+        If you did not sign up or think this email was sent to you by mistake, feel free to ignore it—no further action is required.
+      </p>
+      <p>Best regards,<br />FCF invest</p>
+      <div class="footer">
+        <p>
+          If you have any questions, feel free to visit our <a href="{{ url_for('main.index')}}">website</a>.
+        </p>
+        <p>&copy; 2024 FCF invest MS. All rights reserved.</p>
+      </div>
+    </div>
+  </body>
+</html>

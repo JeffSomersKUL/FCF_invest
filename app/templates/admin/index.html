@@ -1,0 +1,47 @@
+{% extends 'admin/master.html' %} {% from "admin/contact-card.html" import
+contact_message %}{% block head %} {{ super() }}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/admin.css') }}" />
+{% endblock %} {% block body %}
+<h1>Admin Dashboard</h1>
+
+<div class="row mb-4">
+  <div class="col-md-12">
+    <h5 class="h2">Users: {{user_count}}</h5>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+        <tr>
+          <td>{{ user.fname }} {{ user.lname }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Contact Forms -->
+<div class="row mb-4">
+  <div class="col-md-12">
+    <h2>Contact Forms</h2>
+    <div class="message-container">
+      {% for form in contact_forms %} {{ contact_message(form) }} {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  function deleteMessage(messageId) {
+    if (confirm("Are you sure you want to delete this message?")) {
+      // Redirect to the delete route
+      window.location.href = "delete_message/" + messageId;
+    }
+  }
+</script>
+{% endblock %}

@@ -9,13 +9,11 @@
 </div>
 
 {% endblock %} {% block extra_scripts %}
-<script
-  type="text/babel"
-  src="{{ url_for('static', filename='js/components/login-form.jsx') }}"></script>
-<script type="text/babel">
-  const rootElement = document.getElementById("login-form");
-  const root = ReactDOM.createRoot(rootElement);
-  const token ="{{token}}"
-  root.render(<LoginForm.LoginForm token={token}/>);
+<script>
+  window.__TOKEN__ = "{{token}}";
+  window.__CONFIRM_STATE__ = "{{confirm_state}}";
+  window.__ERROR_STATE__ = "{{error_state}}";
+  window.__SUCCESS_STATE__ = "{{success_state}}";
 </script>
+<script type="module" src="{{ asset('auth/auth-main.jsx')}}"></script>
 {% endblock extra_scripts %}

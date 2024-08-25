@@ -9,14 +9,9 @@
 </div>
 
 {% endblock %}{% block extra_scripts %}
-<script
-  type="text/babel"
-  src="{{ url_for('static', filename='js/components/profile.jsx') }}"></script>
-<script type="text/babel">
-  const rootElement = document.getElementById("profile");
-  const root = ReactDOM.createRoot(rootElement);
-  const token ="{{token}}"
+<script>
+  window.__TOKEN__= "{{token}}";
   const profile = {isAdmin: "{{current_user.is_admin}}"}
-  root.render(<Profile.Profile token={token}/>);
 </script>
+<script type="module" src="{{ asset('profile/profile-main.jsx')}}"></script>
 {% endblock extra_scripts %}
