@@ -1,0 +1,166 @@
+/* PHONE */
+@media (max-width:473px) {
+    .portfolio-main-body-section {
+        padding: 1rem !important;
+    }
+}
+
+
+.navbar {
+    background: var(--primary-color);
+    position: absolute !important;
+    top: 0 !important;
+}
+
+.navbar.sticky {
+    background: var(--primary-color);
+    position: absolute !important;
+    top: 0 !important;
+}
+
+.portfolio-main-body-section {
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - var(--height-navbar));
+    margin: auto
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    border: 3px solid var(--primary-color);
+    border-radius: 15px;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.form-input-container {
+    height: fit-content;
+    transition: height 200ms ease-in-out;
+    overflow-y: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row-name {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    max-width: 300px;
+    width: 100%;
+}
+
+.col-name {
+    flex: 1 0 100px;
+}
+
+.form-group {
+    max-width: 300px;
+    width: 100%;
+    position: relative;
+}
+
+.login-img {
+    width: 35%;
+    opacity: 0.9;
+}
+
+.login-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.login-header {
+    font-size: 18px;
+    font-weight: 700;
+    color: #29598e;
+}
+
+#remember-me {
+    height: 10px;
+}
+
+.form-group.remember-me {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.form-group label {
+    color: #848484;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'sans-serif';
+    font-size: 14px;
+}
+
+.submit-container {
+    width: 80%;
+    margin: auto;
+    margin-top: 1.5rem;
+}
+
+#email-for-sign-up {
+    margin-bottom: 1rem;
+}
+
+.account-info-text {
+    color: #848484;
+    font-size: 13px;
+    font-weight: 350;
+    text-align: center;
+}
+
+.account-info-text button {
+    color: var(--primary-color);
+    font-weight: 400;
+    background-color: transparent;
+    border: none;
+    transition: color 200ms ease-in-out;
+}
+
+.account-info-text button:disabled {
+    color: var(--primary-color);
+    opacity: 0.6;
+}
+
+.error-container {
+    transition: height 200ms ease-in-out;
+    text-align: center;
+    color: #ae3a3a;
+    font-size: 13px;
+}
+
+.icon-feedback-form {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: green;
+}
+
+.form-auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80%;
+}

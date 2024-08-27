@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block additional_css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/login.css') }}" />
+{% endblock %} {% block app_content %}
+
+<div class="portfolio-main-body-section site-width">
+  <div id="login-form"></div>
+</div>
+
+{% endblock %} {% block extra_scripts %}
+<script>
+  window.__TOKEN__ = "{{token}}";
+  window.__CONFIRM_STATE__ = "{{confirm_state}}";
+  window.__ERROR_STATE__ = "{{error_state}}";
+  window.__SUCCESS_STATE__ = "{{success_state}}";
+</script>
+<script type="module" src="{{ asset('auth/auth-main.jsx')}}"></script>
+{% endblock extra_scripts %}

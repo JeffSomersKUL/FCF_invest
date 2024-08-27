@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block additional_css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/profile.css') }}" />
+{% endblock %} {% block app_content %}
+
+<div class="profile-main-body-section site-width">
+    <div id="profile"></div>
+</div>
+
+{% endblock %}{% block extra_scripts %}
+<script>
+  window.__TOKEN__= "{{token}}";
+  const profile = {isAdmin: "{{current_user.is_admin}}"}
+</script>
+<script type="module" src="{{ asset('profile/profile-main.jsx')}}"></script>
+{% endblock extra_scripts %}

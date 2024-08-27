@@ -22,17 +22,17 @@ $(document).ready(function () {
           console.log(response);
           if (response.response == "success") {
             const successDiv =
-              '<div class="alert alert-success" id="success-feedback" role="alert">We successfully received your message!</div>';
+              '<div class="success fb">We successfully received your message!</div>';
             feedbackDiv.innerHTML = successDiv;
             feedbackDiv.style.height = feedbackDiv.scrollHeight + "px";
           } else if (response.response == "failed") {
             const backendFailedDiv =
-              '<div class="alert alert-warning" role="alert">Something went wrong on our side when saving your form, please try again later.</div>';
+              '<div class="warning fb">Something went wrong on our side when saving your form, please try again later.</div>';
             feedbackDiv.innerHTML = backendFailedDiv;
             feedbackDiv.style.height = feedbackDiv.scrollHeight + "px";
           } else {
             const notFilledDiv =
-              '<div class="alert alert-danger" role="alert">Not all fields are filled in.</div>';
+              '<div class="danger fb">Not all fields are filled in.</div>';
             feedbackDiv.innerHTML = notFilledDiv;
             feedbackDiv.style.height = feedbackDiv.scrollHeight + "px";
             myButton.disabled = false;

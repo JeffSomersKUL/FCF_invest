@@ -1,0 +1,32 @@
+.message-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
+}
+
+.message {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #fdfdfd;
+    margin: 10px;
+    max-width: 400px;
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
+
+.message-content{
+    height: 150px;
+    overflow-y: auto;
+}
+
+.delete-button {
+    margin-top: 10px;
+    cursor: pointer;
+    color: red;
+}
+
+.message-card p{
+    white-space: nowrap;
+    overflow-x: auto;
+}
