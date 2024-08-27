@@ -1,4 +1,5 @@
 import os
+import re
 from flask import render_template, current_app
 from app.models import User, Member
 from app import mail, db
@@ -11,20 +12,39 @@ ERROR_STATE = "error"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
-def is_valid_email(email):
+class EmailValidationError(Exception):
+    """Custom exception for email validation errors."""
+
+    def __init__(self, message):
+        super().__init__(message)
+        self.message = message
+
+
+def get_member(email):
+    # Basic email format validation using regex
+    email_regex = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+
+    if not re.match(email_regex, email):
+        raise EmailValidationError("Invalid email format")
+
     existing_user = User.query.filter_by(email=email).first()
+
     if existing_user:
         if existing_user.confirmed:
-            return {ERROR_STATE: "User with this email already exists"}, 400
+            raise EmailValidationError(
+                "User with this email already exists"
+            )
         else:
-            return {
-                ERROR_STATE: "User already signed up, but confirmation is needed"
-            }, 400
-    # check if it is a member
-    allowed_member = Member.query.filter_by(current=True, email=email).first()
-    if not allowed_member:
-        return {ERROR_STATE: "You are not a member"}, 400
+            raise EmailValidationError(
+                "User with this email already signed up, but not confirmed"
+            )
 
+    allowed_member = Member.query.filter_by(current=True, email=email).first()
+
+    if not allowed_member:
+        raise EmailValidationError("Email not associated with a valid member")
+
+    # If everything is valid, return the member
     return allowed_member
 
 

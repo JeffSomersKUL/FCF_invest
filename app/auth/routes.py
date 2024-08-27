@@ -1,10 +1,11 @@
 from flask import render_template, jsonify
 from .services import (
-    is_valid_email,
+    get_member,
     send_confirmation_email,
     CONFIRM_STATE,
     SUCCESS_STATE,
     ERROR_STATE,
+    EmailValidationError,
 )
 from . import auth
 from app import db, limiter
@@ -75,21 +76,19 @@ def signup():
     if current_user.is_authenticated:
         return jsonify({ERROR_STATE: "Already logged in"}), 400
 
-    member = is_valid_email(
-        email
-    )  # if not legit member found returns tuple with explaining error
-    if member[1]:
-        return jsonify(member[0]), member[1]
+    try:
+        member = get_member(email)
+    except EmailValidationError as e:
+        return jsonify({ERROR_STATE: e.message}), 400
 
-    if not User.query.filter_by(email=email).first():
-        user = User(email=email, member_id=member.id)
-        user.set_password(psw)
-        try:
-            db.session.add(user)
-            db.session.commit()
-        except Exception as e:
-            print(e)
-            return jsonify({ERROR_STATE: "Database operation failed"}), 400
+    user = User(email=email, member_id=member.id)
+    user.set_password(psw)
+    try:
+        db.session.add(user)
+        db.session.commit()
+    except Exception as e:
+        print(e)
+        return jsonify({ERROR_STATE: "Database operation failed"}), 400
 
     error_response = send_confirmation_email(user)
     if error_response:
