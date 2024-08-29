@@ -72,13 +72,13 @@ def send_email(to, subject, template, attachments=[]):
                 if mime_type is None:
                     mime_type = "application/octet-stream"  # Default MIME type
 
-                # msg.attach(
-                #     filename=file_name,
-                #     content_type=mime_type,
-                #     data=f.read(),
-                #     disposition="inline",
-                #     headers=[["Content-ID", f"<{file_name}>"]],
-                # )
+                msg.attach(
+                    filename=file_name,
+                    content_type=mime_type,
+                    data=f.read(),
+                    disposition="inline",
+                    headers=[["Content-ID", f"<{file_name}>"]],
+                )
         except IOError:
             raise EmailSendError(f"Error reading file {att}")
     mail.send(msg)
@@ -104,8 +104,8 @@ def send_confirmation_email(user):
         confirmation_code=user.confirmation_code,
     )
     subject = "Please confirm your email"
-    try:
-        send_email(user.email, subject, html, attachments=[path_logo])
-    except Exception as e:
-        print(e)
-        raise EmailSendError("Email operation failed")
+    # try:
+    send_email(user.email, subject, html, attachments=[path_logo])
+    # except Exception as e:
+    #     print(e)
+    #     raise EmailSendError("Email operation failed")
