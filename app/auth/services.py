@@ -104,8 +104,7 @@ def send_confirmation_email(user):
         confirmation_code=user.confirmation_code,
     )
     subject = "Please confirm your email"
-    # try:
-    send_email(user.email, subject, html, attachments=[path_logo])
-    # except Exception as e:
-    #     print(e)
-    #     raise EmailSendError("Email operation failed")
+    try:
+        send_email(user.email, subject, html, attachments=[path_logo])
+    except Exception:
+        raise EmailSendError("Email operation failed")
