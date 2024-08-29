@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { Check } from "react-bootstrap-icons";
+import { Mail, LockKeyhole } from "lucide-react";
+
 import { handleFetch } from "../general/fetch";
 import { isValidEmail } from "./validators";
 import { AuthStates } from "./auth-form";
@@ -69,46 +72,53 @@ export function SignupForm({
   return (
     <form className="form-auth" onSubmit={handleSubmit}>
       <div className="form-group" id="email-for-sign-up">
-        <input
-          type="email"
-          id="email"
-          name="email"
-          className={`form-underline ${validEmail && "valid"}`}
-          aria-describedby="emailHelp"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        {validEmail && <i className="icon-feedback-form bi bi-check"></i>}
+        <div className="form-with-icon">
+          <Mail size={16} color="#29598e" strokeWidth={3} />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            className={`form-underline ${validEmail && "valid"}`}
+            aria-describedby="emailHelp"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          {validEmail && <Check className="icon-feedback-form" />}
+        </div>
       </div>
       <div className="form-group">
-        <input
-          type="password"
-          id="password"
-          name="password"
-          className={`form-underline ${validPassword && "valid"}`}
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        {validPassword && <i className="icon-feedback-form bi bi-check"></i>}
+        <div className="form-with-icon">
+          <LockKeyhole size={16} color="#29598e" strokeWidth={3} />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            className={`form-underline ${validPassword && "valid"}`}
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+          {validPassword && <Check className="icon-feedback-form" />}
+        </div>
       </div>
       <div className="form-group">
-        <input
-          type="password"
-          id="confirm-password"
-          name="confirmPassword"
-          className={`form-underline ${validConfirmPassword && "valid"}`}
-          placeholder="Confirm Password"
-          value={formData.confirmPassword}
-          onChange={handleChange}
-          required
-        />
-        {validConfirmPassword && (
-          <i className="icon-feedback-form bi bi-check"></i>
-        )}
+        <div className="form-with-icon">
+          <LockKeyhole size={16} color="#29598e" strokeWidth={3} />
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirmPassword"
+            className={`form-underline ${validConfirmPassword && "valid"}`}
+            placeholder="Confirm Password"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            required
+          />
+          {validConfirmPassword && <Check className="icon-feedback-form" />}
+        </div>
       </div>
       <div className="form-group submit-container">
         <button type="submit" className="primary-button full-width">

@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { CircleUserRound, SendHorizontal } from "lucide-react";
+
 import { LoginForm } from "./login-form";
 import { ConfirmForm } from "./confirm-form";
 import { SignupForm } from "./signup-form";
@@ -82,14 +84,11 @@ export function Form() {
   return (
     <div className="login-container">
       <div className="login-header">
-        <img
-          className="login-img"
-          src={
-            loginState == (AuthStates.LOGIN || AuthStates.SIGNUP)
-              ? "../static/images/login/transparant-profile.png"
-              : "../static/images/login/email-send.png"
-          }
-        />
+        {loginState == AuthStates.LOGIN || loginState == AuthStates.SIGNUP ? (
+          <CircleUserRound size={120} strokeWidth={2} />
+        ) : (
+          <SendHorizontal size={120} strokeWidth={2} />
+        )}
         <div>
           {loginState == AuthStates.LOGIN && "Login"}
           {loginState == AuthStates.SIGNUP && "Signup"}

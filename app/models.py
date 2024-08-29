@@ -37,7 +37,7 @@ class Member(db.Model):
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(255), unique=True, nullable=False)
-    password_hash = db.Column(db.String(128), nullable=False)
+    password_hash = db.Column(db.String(255), nullable=False)
     is_admin = db.Column(db.Boolean, default=False)
     date_created = db.Column(
         db.DateTime, nullable=False, default=lambda: datetime.now(timezone.utc)
