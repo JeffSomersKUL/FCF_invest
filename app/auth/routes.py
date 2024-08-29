@@ -6,6 +6,7 @@ from .services import (
     SUCCESS_STATE,
     ERROR_STATE,
     EmailValidationError,
+    EmailSendError,
 )
 from . import auth
 from app import db, limiter
@@ -89,10 +90,10 @@ def signup():
     except Exception as e:
         print(e)
         return jsonify({ERROR_STATE: "Database operation failed"}), 400
-
-    error_response = send_confirmation_email(user)
-    if error_response:
-        return jsonify(error_response[0]), error_response[1]
+    try:
+        send_confirmation_email(user)
+    except EmailSendError as e:
+        return jsonify({ERROR_STATE: e.message}), 400
 
     return jsonify({CONFIRM_STATE: email}), 201
 
@@ -168,9 +169,10 @@ def send_confirm():
 
     if not user and user.check_password(password) and user.confirmed:
         return jsonify({ERROR_STATE: "Can't resend"}), 400
-    error_response = send_confirmation_email(user)
-    if error_response:
-        return jsonify(error_response[0]), error_response[1]
+    try:
+        send_confirmation_email(user)
+    except EmailSendError as e:
+        return jsonify({ERROR_STATE: e.message}), 400
 
     return jsonify({CONFIRM_STATE: email}), 201
 

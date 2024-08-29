@@ -1,4 +1,4 @@
-import { useState, Fragment} from "react";
+import { useState, Fragment } from "react";
 import { handleFetch } from "../general/fetch";
 
 export function ConfirmForm({ setErrorMessage, email, password }) {
@@ -29,11 +29,7 @@ export function ConfirmForm({ setErrorMessage, email, password }) {
         "X-CSRFToken": window.__TOKEN__,
       },
     };
-    const response = await handleFetch(
-      "/resend-confirmation",
-      options,
-      true
-    );
+    const response = await handleFetch("/resend-confirmation", options, true);
     if (window.__ERROR_STATE__ in response) {
       setErrorMessage(response.error);
     }
@@ -97,6 +93,7 @@ export function ConfirmForm({ setErrorMessage, email, password }) {
             {!isSending ? "Enter Code" : "loading..."}
           </button>
         </div>
+        <div style={{ height: "15px" }}></div>
       </form>
     </Fragment>
   );

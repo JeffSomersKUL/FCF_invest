@@ -34,9 +34,9 @@
 
 .login-container {
     width: 100%;
-    max-width: 430px;
+    max-width: 450px;
     min-width: 370px;
-    padding: 1rem 0px;
+    padding: 1rem 2rem;
     border: 3px solid var(--primary-color);
     border-radius: 15px;
     display: flex;
