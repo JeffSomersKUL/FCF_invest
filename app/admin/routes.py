@@ -64,7 +64,7 @@ class UserAdmin(ModelView):
 
 
 class MemberAdmin(ModelView):
-    column_list = ["id", "email", "current"]
+    column_list = ["id", "email", "fname", "lname", "current"]
     form_columns = ["email", "current"]
     can_create = True
     can_edit = True

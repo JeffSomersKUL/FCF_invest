@@ -5,13 +5,19 @@
 {% endblock %} {% block app_content %}
 
 <div class="profile-main-body-section site-width">
-    <div id="profile"></div>
+  <div id="profile"></div>
 </div>
 
 {% endblock %}{% block extra_scripts %}
 <script>
-  window.__TOKEN__= "{{token}}";
-  const profile = {isAdmin: "{{current_user.is_admin}}"}
+  window.__TOKEN__ = "{{token}}";
+  window.__ADMIN_URL__ = "{{url_for('admin.index')}}";
+  window.__PROFILE__ = {
+    isAdmin: "{{current_user.member.is_admin}}",
+    firstName: "{{current_user.member.fname}}",
+    lastName: "{{current_user.member.lname}}",
+    email: "{{current_user.email}}",
+  };
 </script>
 <script type="module" src="{{ asset('profile/profile-main.jsx')}}"></script>
 {% endblock extra_scripts %}

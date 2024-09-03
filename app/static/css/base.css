@@ -28,6 +28,8 @@ body {
   --blue-filter: rgba(6, 31, 89, 0.64);
   --inset-shadow-top: inset 0 22px 22px -16px rgba(0, 0, 0, 0.5);
   --inset-shadow-bottom: inset 0 -22px 22px -16px rgba(0, 0, 0, 0.5);
+  --light-blue: #077fff21;
+  --light-blue-shadow: #5cb3ff14;
 }
 
 /* LAPTOP & TABLET*/

@@ -4,4 +4,4 @@ import { ProfileContainer } from "./profile"
 
 const domContainer = document.querySelector('#profile');
 const root = ReactDOM.createRoot(domContainer);
-root.render(<ProfileContainer/>);
+root.render(<ProfileContainer profileInfo={window.__PROFILE__}/>);

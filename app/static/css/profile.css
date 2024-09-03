@@ -1,6 +1,6 @@
 /* PHONE */
 @media (max-width:473px) {
-    .profile-main-body-section{
+    .profile-main-body-section {
         padding: 1rem !important;
     }
 }
@@ -27,12 +27,113 @@
     margin: auto
 }
 
-#profile{
+#profile {
     width: 100%;
-    max-width: 800px;
 }
 
-#profile-container{
+#profile-container {
     width: 100%;
-    max-width: 800px;
+}
+
+#overview-container {
+    padding: 1rem;
+}
+
+#information-container {
+    padding: 1rem;
+}
+
+#profile-screen {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border: 1px solid #0f12bf14;
+    background-color: var(--light-blue);
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+}
+
+#overview-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    border: 1px solid #3d74a414;
+    background-color: #d6e9ff21;
+    min-height: 200px;
+}
+
+#profile-screen .info {
+    margin-bottom: 1rem;
+}
+
+#profile-screen .name-container {
+    font-size: 20px;
+    font-weight: 500;
+    color: #36588ced;
+    width: 90%;
+}
+
+#profile-screen .email-container {
+    color: var(--dark-text-desc-color);
+    font-size: 15px;
+    overflow-x: auto;
+}
+
+#profile-screen .stock-status .price-status {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#profile-screen .stock-status .amount-status {
+    color: var(--dark-text-desc-color);;
+    font-size: 12px;
+}
+
+#profile-screen .logout-container {
+    margin-top: auto;
+}
+
+#profile-screen .actions-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    gap: 10px;
+    padding: 1rem;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    transition: all 200ms ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-button:hover {
+    background: none;
+    border: none;
+    color: #041e3a;
+
+}
+
+.text-button-logout {
+    background: none;
+    border: none;
+    transition: all 200ms ease-in-out;
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    color: #e15b5b;
+}
+
+.text-button-logout:hover {
+    background: none;
+    border: none;
+    color: #d90909
 }

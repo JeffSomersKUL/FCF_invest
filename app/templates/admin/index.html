@@ -18,7 +18,7 @@ contact_message %}{% block head %} {{ super() }}
       <tbody>
         {% for user in users %}
         <tr>
-          <td>{{ user.fname }} {{ user.lname }}</td>
+          <td>{{ user.member.fname }} {{ user.member.lname }}</td>
         </tr>
         {% endfor %}
       </tbody>
