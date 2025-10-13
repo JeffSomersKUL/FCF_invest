@@ -10,7 +10,11 @@
 
 {% endblock %} {% block extra_scripts %}
 <script>
-  window.__TOKEN__ = "{{token}}";
+  window.__ENDPOINT_SINGUP__ = "{{url_for('auth.signup')}}";
+  window.__ENDPOINT_SIGNIN__ = "{{url_for('auth.signin')}}";
+  window.__ENDPOINT_VERIFYEMAIL__ = "{{url_for('auth.verify_email')}}";
+  window.__ENDPOINT_RESENDCONFIRMATION__ =
+    "{{url_for('auth.resend_confirm_code')}}";
   window.__CONFIRM_STATE__ = "{{confirm_state}}";
   window.__ERROR_STATE__ = "{{error_state}}";
   window.__SUCCESS_STATE__ = "{{success_state}}";

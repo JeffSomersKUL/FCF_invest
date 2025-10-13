@@ -8,7 +8,205 @@
 }
 
 .portfolio-main-body-section {
-    text-align: center;
     margin: 4rem auto;
     min-height: 300px;
+}
+
+
+.summary-block {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border: 1px solid #0f12bf0a;
+    background-color: #9ecdff21;
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: -2px 2px 2px 0px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-block .cash {
+    font-size: 30px;
+    font-family: 'Oswald', sans-serif;
+    color: #36588ced;
+}
+
+.summary-block .after-costs {
+    color: var(--dark-text-desc-color);
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+}
+
+.asset-name-container {
+    width: 30%;
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+    white-space: nowrap;
+    top: 100%;
+    /* Position below the asset name */
+    left: 0;
+    transform: translateY(5px);
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+
+.title-positions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.title-positions h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #36588ced;
+    margin-bottom: 0;
+}
+
+.title-positions .amount-positions {
+    font-size: 12px;
+    color: white;
+    padding: 2px 12px;
+    background-color: #b9cbf5;
+    border-radius: 10px;
+}
+
+.assets-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.assets-table thead tr {
+    border-bottom: 1px solid;
+    border-color: lightgray;
+}
+
+.assets-table th,
+.assets-table td {
+    text-align: left;
+    padding: 15px 15px;
+}
+
+.assets-table tbody .number-format {
+    font-family: 'Oswald', sans-serif;
+    color: #36588cb5;
+}
+
+.assets-table th {
+    font-weight: normal;
+    color: lightgray;
+    padding-bottom: 3px;
+    font-size: 13px;
+}
+
+.assets-table .units {
+    width: 40px;
+    padding: 5px;
+    text-align: center;
+    color: #6281a8ab;
+    font-size: 10px;
+}
+
+.assets-table th.ticker {
+    min-width: 100%;
+}
+
+.assets-table th.last-price {
+    width: 110px;
+}
+
+.assets-table th.equity {
+    width: 120px;
+}
+
+.assets-table th.change {
+    width: 120px
+}
+
+.assets-table th.total-return {
+    max-width: 170px;
+    width: 170px;
+}
+
+.assets-table tbody tr {
+    background-color: #fcfdff;
+    transition: all 0.15s ease-in-out;
+}
+
+.assets-table tbody tr:hover {
+    background-color: #deeeff8a !important;
+}
+
+.assets-table td .ticker {
+    color: #36588ced;
+    width: 100%;
+}
+
+.assets-table .change {
+    text-align: center !important;
+}
+
+.assets-table td {
+    border-bottom: 1px solid #f2f3f4;
+}
+
+@media (max-width: 768px) {
+
+    .assets-table th,
+    .assets-table td {
+        padding: 8px 10px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
+
+.cash-details-container {
+    margin-top: 1rem;
+    font-size: 14px;
+    margin-bottom: 2rem;
+    display: flex;
+    color: #5d7291;
+    justify-content: center;
+}
+
+.cash-details-container>.cash-details:not(:first-child) {
+    border-left: 1px solid #d3d3d36b;
+}
+
+.cash-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.cash-symbol {
+    font-weight: 500;
+}
+
+.return {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.return .percentage {
+    font-size: 13px;
 }

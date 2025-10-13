@@ -1,14 +1,10 @@
-from flask import (
-    render_template,
-    request,
-    redirect,
-    url_for,
-)
+from flask import render_template, request
+from sqlalchemy.exc import SQLAlchemyError
+
 from . import main
 from app import db
-from app.models import ContactFormData
-from app.forms import ContactForm
-from sqlalchemy.exc import SQLAlchemyError
+from .models import ContactFormData
+from .forms import ContactForm
 
 
 @main.route("/")
@@ -25,12 +21,6 @@ def leadership():
 @main.route("/about")
 def about():
     return render_template("about.html")
-
-
-@main.route("/portfolio")
-def portfolio():
-    return render_template("portfolio.html")
-
 
 @main.route("/submit_form", methods=["POST"])
 def submit_form():

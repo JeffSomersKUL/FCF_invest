@@ -8,10 +8,9 @@ export function ProfileContainer({ profileInfo }) {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRFToken": window.__TOKEN__,
       },
     };
-    const response = await handleFetch("/logout", options);
+    const response = await handleFetch(window.__ENDPOINT_LOGOUT__, options);
     if ("success" in response) {
       window.location.href = "/login";
     }

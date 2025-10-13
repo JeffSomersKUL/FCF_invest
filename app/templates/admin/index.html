@@ -1,14 +1,107 @@
-{% extends 'admin/master.html' %} {% from "admin/contact-card.html" import
-contact_message %}{% block head %} {{ super() }}
-<link
-  rel="stylesheet"
-  href="{{ url_for('static', filename='css/admin.css') }}" />
-{% endblock %} {% block body %}
+{% extends 'admin/master.html' %}
+{% from "admin/contact-card.html" import contact_message %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}" />
+{% endblock %}
+{% block body %}
 <h1>Admin Dashboard</h1>
 
+<!-- Platform Balances and Open Assets -->
 <div class="row mb-4">
   <div class="col-md-12">
-    <h5 class="h2">Users: {{user_count}}</h5>
+    <h2>Platform Balances and Open Assets</h2>
+    <div class="row mb-4">
+      <div class="col-md-12">
+        <form method="get" action="{{ url_for('admin.index') }}" class="form-inline mb-4">
+          <div class="form-group">
+            <label for="start_date" class="mr-2">Start Date:</label>
+            <input
+              type="date"
+              id="start_date"
+              name="start_date"
+              class="form-control mr-3"
+              value="{{ request.args.get('start_date', '') }}"
+            />
+          </div>
+          <div class="form-group">
+            <label for="end_date" class="mr-2">End Date:</label>
+            <input
+              type="date"
+              id="end_date"
+              name="end_date"
+              class="form-control mr-3"
+              value="{{ request.args.get('end_date', '') }}"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Filter</button>
+        </form>
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th rowspan="2">Platform</th>
+          <th colspan="{{ currencies|length }}">Currencies</th>
+          <th rowspan="2">Open Assets</th>
+          <th rowspan="2">Details</th>
+        </tr>
+        <tr>
+          {% for currency in currencies %}
+          <th>{{ currency.value }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in platform_balances %}
+        <tr>
+          <td>{{ item.platform.name }}</td>
+          {% for currency in currencies %}
+          <td>{{ item.balances.get(currency, 0.0) | round(2) }}</td>
+          {% endfor %}
+          <td>
+            {% if item.open_assets %}
+            <ul>
+              {% for asset_info in item.open_assets %}
+              <li>{{ asset_info.asset }}: {{ asset_info.net_quantity }}</li>
+              {% endfor %}
+            </ul>
+            {% else %} None {% endif %}
+          </td>
+          <td>
+            <button class="toggle-btn" onclick="openModal('{{ item.platform.id }}')">
+              Show Info
+            </button>
+          </td>
+        </tr>
+        <div id="modal-{{ item.platform.id }}" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal('{{ item.platform.id }}')">&times;</span>
+            <h2>Intermediate Costs for {{ item.platform.name }}</h2>
+            <ul>
+              {% for currency, sums in item.intermediate_sums.items() %}
+              <li>
+                <strong>{{ currency.value }}:</strong>
+                <ul>
+                  {% for category, amount in sums.items() %}
+                  <li>{{ category }}: {{ amount | round(2) }}</li>
+                  {% endfor %}
+                </ul>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Users Section -->
+<div class="row mb-4">
+  <div class="col-md-12">
+    <h5 class="h2">Users: {{ user_count }}</h5>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -26,7 +119,7 @@ contact_message %}{% block head %} {{ super() }}
   </div>
 </div>
 
-<!-- Contact Forms -->
+<!-- Contact Forms Section -->
 <div class="row mb-4">
   <div class="col-md-12">
     <h2>Contact Forms</h2>
@@ -39,9 +132,27 @@ contact_message %}{% block head %} {{ super() }}
 <script>
   function deleteMessage(messageId) {
     if (confirm("Are you sure you want to delete this message?")) {
-      // Redirect to the delete route
       window.location.href = "delete_message/" + messageId;
     }
   }
+
+  function openModal(platformId) {
+    var modal = document.getElementById("modal-" + platformId);
+    modal.style.display = "block";
+  }
+
+  function closeModal(platformId) {
+    var modal = document.getElementById("modal-" + platformId);
+    modal.style.display = "none";
+  }
+
+  window.onclick = function (event) {
+    var modals = document.querySelectorAll(".modal");
+    modals.forEach(function (modal) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    });
+  };
 </script>
 {% endblock %}

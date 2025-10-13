@@ -1,0 +1,41 @@
+{% extends 'admin/model/edit.html' %}
+
+{% block tail %}
+    {{ super() }}
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the tracking method select field
+            var trackingMethod = document.getElementById("tracking_method");
+
+            // Get the fields that should be conditionally shown/hidden
+            var currencyField = document.getElementById("currency").closest('.form-group');
+            var exchangeField = document.getElementById("exchange").closest('.form-group');
+            var longNameField = document.getElementById("long_name").closest('.form-group');
+            var csvFilePathField = document.getElementById("csv_file").closest('.form-group');
+            var additionalInfoField = document.getElementById("additional_info").closest('.form-group');
+
+            // Function to toggle visibility based on tracking method
+            function toggleFields() {
+                if (trackingMethod.value === "TrackingMethod.YAHOO_FINANCE") {
+                    currencyField.style.display = "none";
+                    exchangeField.style.display = "none";
+                    longNameField.style.display = "none";
+                    csvFilePathField.style.display = "none";
+                    additionalInfoField.style.display = "none";
+                } else {
+                    currencyField.style.display = "block";
+                    exchangeField.style.display = "block";
+                    longNameField.style.display = "block";
+                    csvFilePathField.style.display = "block";
+                    additionalInfoField.style.display = "block";
+                }
+            }
+
+            // Initial field toggle when the page loads
+            toggleFields();
+
+            // Add event listener for changes in tracking method
+            trackingMethod.addEventListener("change", toggleFields);
+        });
+    </script>
+{% endblock %}

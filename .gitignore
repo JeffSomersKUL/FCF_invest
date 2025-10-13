@@ -2,3 +2,5 @@ __pycache__/
 /instance/*
 .env
 .DS_Store
+app/upload/images
+app/logs

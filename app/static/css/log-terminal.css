@@ -1,0 +1,33 @@
+#log-content{
+    height: calc(100vh - 12rem);
+}
+
+.terminal {
+    border: 2px solid gray;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.terminal-title {
+    padding: 1rem 2rem;
+    font-size: large;
+    font-weight: bold;
+}
+
+.terminal-output {
+    background-color: #f5f5f5;
+    padding: 2rem;
+    overflow-y: auto;
+    font-size: 14px;
+    flex:1;
+    border-bottom-left-radius: 15px; /* Bottom-left corner radius */
+    border-bottom-right-radius: 15px; 
+}
+
+.log-content{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: monospace;
+}

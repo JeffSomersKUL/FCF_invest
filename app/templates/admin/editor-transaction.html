@@ -1,0 +1,9 @@
+{% extends 'admin/model/create.html' %} {% block tail %} {{ super() }} {{
+ckeditor.load() }} {{ ckeditor.config(name='information') }}
+<script>
+  CKEDITOR.replace("information", {
+    extraPlugins: "uploadimage",
+    filebrowserUploadMethod: "form"
+  });
+</script>
+{% endblock %}

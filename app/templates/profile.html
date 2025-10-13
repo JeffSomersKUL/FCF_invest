@@ -2,6 +2,9 @@
 <link
   rel="stylesheet"
   href="{{ url_for('static', filename='css/profile.css') }}" />
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/always-nav-bar.css') }}" />
 {% endblock %} {% block app_content %}
 
 <div class="profile-main-body-section site-width">
@@ -10,8 +13,8 @@
 
 {% endblock %}{% block extra_scripts %}
 <script>
-  window.__TOKEN__ = "{{token}}";
   window.__ADMIN_URL__ = "{{url_for('admin.index')}}";
+  window.__ENDPOINT_LOGOUT__ = "{{url_for('auth.logout')}}";
   window.__PROFILE__ = {
     isAdmin: "{{current_user.member.is_admin}}",
     firstName: "{{current_user.member.fname}}",

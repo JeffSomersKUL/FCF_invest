@@ -15,6 +15,8 @@ export default defineConfig({
       input: [
         "modules_source/auth/auth-main.jsx",
         "modules_source/profile/profile-main.jsx",
+        "modules_source/log-terminal/log-terminal-main.jsx",
+        "modules_source/portfolio/portfolio-main.jsx"
       ],
     },
     emptyOutDir: true,

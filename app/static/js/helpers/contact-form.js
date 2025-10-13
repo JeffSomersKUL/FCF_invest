@@ -19,7 +19,6 @@ $(document).ready(function () {
         data: $("#contact-form").serialize(), // Serialize form data
         success: function (response) {
           // Handle the response as needed
-          console.log(response);
           if (response.response == "success") {
             const successDiv =
               '<div class="success fb">We successfully received your message!</div>';

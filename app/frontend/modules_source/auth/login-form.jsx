@@ -45,11 +45,14 @@ export function LoginForm({
       body: JSON.stringify(formData),
       headers: {
         "Content-Type": "application/json",
-        "X-CSRFToken": window.__TOKEN__,
       },
     };
     setIsSending(true);
-    const response = await handleFetch("/signin", options, true);
+    const response = await handleFetch(
+      window.__ENDPOINT_SIGNIN__,
+      options,
+      true
+    );
     if (window.__ERROR_STATE__ in response) {
       setErrorMessage(response.error);
     }

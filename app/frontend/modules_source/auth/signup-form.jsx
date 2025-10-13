@@ -52,11 +52,10 @@ export function SignupForm({
       body: JSON.stringify(formData),
       headers: {
         "Content-Type": "application/json",
-        "X-CSRFToken": window.__TOKEN__,
       },
     };
     setIsSending(true);
-    const response = await handleFetch("/signup", options, true);
+    const response = await handleFetch(window.__ENDPOINT_SINGUP__, options, true);
     if (window.__ERROR_STATE__ in response) {
       setErrorMessage(response.error);
     }

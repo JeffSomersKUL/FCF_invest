@@ -1,0 +1,24 @@
+{% extends 'admin/master.html' %} {% block head %} {{ super() }} {% endblock %}
+{% block body %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/log-terminal.css') }}" />
+<div id="log-content"></div>
+{% if is_development %}
+<script type="module" src="{{ asset('@vite/client') }}"></script>
+<script type="module">
+  import RefreshRuntime from "{{ asset('@react-refresh') }}";
+  RefreshRuntime.injectIntoGlobalHook(window);
+  window.$RefreshReg$ = () => {};
+  window.$RefreshSig$ = () => (type) => type;
+  window.__vite_plugin_react_preamble_installed__ = true;
+</script>
+{% endif %}
+<script>
+  window.__ENDPOINT_CONTENT__ = "{{url_for('.get_logs')}}";
+  window.__TITLE__ = "{{title}}";
+</script>
+<script
+  type="module"
+  src="{{ asset('log-terminal/log-terminal-main.jsx')}}"></script>
+{% endblock %}

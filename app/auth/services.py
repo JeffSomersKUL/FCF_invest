@@ -2,10 +2,10 @@ import os
 import re
 import mimetypes
 from flask import render_template, current_app
-
-from app.models import User, Member
-from app import mail, db
 from flask_mail import Message
+
+from app.user.models import User, Member
+from app import mail, db
 
 CONFIRM_STATE = "confirm"
 SUCCESS_STATE = "success"

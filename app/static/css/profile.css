@@ -5,18 +5,6 @@
     }
 }
 
-.navbar {
-    background: var(--primary-color);
-    position: absolute !important;
-    top: 0 !important;
-}
-
-.navbar.sticky {
-    background: var(--primary-color);
-    position: absolute !important;
-    top: 0 !important;
-}
-
 
 .profile-main-body-section {
     padding: 3rem;

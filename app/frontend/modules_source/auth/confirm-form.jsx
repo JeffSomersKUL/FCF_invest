@@ -26,10 +26,13 @@ export function ConfirmForm({ setErrorMessage, email, password }) {
       }),
       headers: {
         "Content-Type": "application/json",
-        "X-CSRFToken": window.__TOKEN__,
       },
     };
-    const response = await handleFetch("/resend-confirmation", options, true);
+    const response = await handleFetch(
+      window.__ENDPOINT_RESENDCONFIRMATION__,
+      options,
+      true
+    );
     if (window.__ERROR_STATE__ in response) {
       setErrorMessage(response.error);
     }
@@ -51,11 +54,14 @@ export function ConfirmForm({ setErrorMessage, email, password }) {
       }),
       headers: {
         "Content-Type": "application/json",
-        "X-CSRFToken": window.__TOKEN__,
       },
     };
     setIsSending(true);
-    const response = await handleFetch("/verify-email", options, true);
+    const response = await handleFetch(
+      window.__ENDPOINT_VERIFYEMAIL__,
+      options,
+      true
+    );
     if (window.__ERROR_STATE__ in response) {
       setErrorMessage(response.error);
     }
